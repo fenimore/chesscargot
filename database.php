@@ -1,10 +1,10 @@
 <?php
 class Database
 {
-	private static $dbName = 'plyp_matches' ;
-	private static $dbHost = 'mysql.plyp.org' ;
+	private static $dbName = 'matches' ;
+	private static $dbHost = 'localhost' ;
 	private static $dbUsername = 'chess_admin';
-	private static $dbUserPassword = 'pss4chess';
+	private static $dbUserPassword = 'password';
 
 	private static $cont  = null;
 
