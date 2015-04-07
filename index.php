@@ -31,7 +31,7 @@
     <div class="container">
     		<div class="row">
           <div class="one-half column" style="margin-top: 25%">
-            <h3>Chess Game Index</h3>
+            <h3>Chess Index</h3>
           </div>
           <div class="one-half column">
             <img id="splash" src="img/play.png" />
