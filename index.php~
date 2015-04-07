@@ -30,7 +30,7 @@
 <body>
     <div class="container">
     		<div class="row">
-          <div class="one-half column">
+          <div class="one-half column" style="margin-top: 25%">
             <h3>Chess Index</h3>
           </div>
           <div class="one-half column">

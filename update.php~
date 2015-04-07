@@ -129,7 +129,7 @@
 								<div id="board" style="width: 350px"></div>
 							</div>
 							<div class="six columns">
-								<p>Status: &nbsp;<span style="color:green" id="status"></span></p>
+								<p>Status:<span style="color:green" id="status"></span></p>
 			          <p><br><span id="pgn"></span></p>
 								<form name="chessconsole" action="update.php?id=<?php echo $id?>" method="post">
 								<div style="display:none" <?php echo !empty($infoError)?'error':'';?>">
