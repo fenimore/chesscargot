@@ -70,10 +70,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <link   href="css/bootstrap.min.css" rel="stylesheet">
+    	
+  <meta charset="utf-8">
+  <title>snail chess</title>
+  <meta name="description" content="">
+  <meta name="author" content="fenimore love">
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+  <!-- CSS JS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="icon" type="image/png" href="img/favicon.png">
 		<link rel="stylesheet" href="css/chessboard-0.3.0.css">
-    <script src="js/bootstrap.min.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/json3/3.3.2/json3.min.js"></script>
 		<script src="js/chessboard-0.3.0.js"></script>
@@ -101,66 +115,66 @@
 
 <body>
     <div class="container">
-    			<div class="span12">
+    			<div class="u-full-width">
 						<div class="row">
-							<div class="span6">
+							<div class="six columns">
 								<h5><?php echo !empty($info)?$info:'';?>: <?php echo !empty($white)?$white:'';?> vs <?php echo !empty($black)?$black:'';?></h5>
 							</div>
-							<div class="span6">
+							<div class="six columns">
 
 							</div>
 						</div>
     				<div class="row">
-							<div class="span6">
+							<div class="six columns">
 								<div id="board" style="width: 350px"></div>
 							</div>
-							<div class="span6">
+							<div class="six columns">
 								<p>Status:<span style="color:green" id="status"></span></p>
 			          <p><br><span id="pgn"></span></p>
-								<form name="chessconsole" class="form-horizontal" action="update.php?id=<?php echo $id?>" method="post">
-								<div style="display:none" class="control-group <?php echo !empty($infoError)?'error':'';?>">
-									<label class="control-label">info</label>
-									<div class="controls">
+								<form name="chessconsole" action="update.php?id=<?php echo $id?>" method="post">
+								<div style="display:none" <?php echo !empty($infoError)?'error':'';?>">
+									<label class="u-full-width">info</label>
+									<div class="u-full-width">
 											<input name="info" type="text"  placeholder="info" value="<?php echo !empty($info)?$info:'';?>">
 											<?php if (!empty($infoError)): ?>
 												<span class="help-inline"><?php echo $infoError;?></span>
 											<?php endif; ?>
 									</div>
 								</div>
-								<div style="display:none" class="control-group <?php echo !empty($whiteError)?'error':'';?>">
-									<label class="control-label">white</label>
-									<div class="controls">
+								<div style="display:none" class="u-full-width <?php echo !empty($whiteError)?'error':'';?>">
+									<label class="u-full-width">white</label>
+									<div>
 											<input name="white" type="text" placeholder="white" value="<?php echo !empty($white)?$white:'';?>">
 											<?php if (!empty($whiteError)): ?>
 												<span class="help-inline"><?php echo $whiteError;?></span>
 											<?php endif;?>
 									</div>
 								</div>
-								<div style="display:none" class="control-group <?php echo !empty($blackError)?'error':'';?>">
-									<label class="control-label">black</label>
-									<div class="controls">
+								<div style="display:none" class="u-full-width <?php echo !empty($blackError)?'error':'';?>">
+									<label class="u-full-width">black</label>
+									<div>
 											<input name="black" type="text"  placeholder="black" value="<?php echo !empty($black)?$black:'';?>">
 											<?php if (!empty($blackError)): ?>
 												<span class="help-inline"><?php echo $blackError;?></span>
 											<?php endif;?>
 									</div>
 								</div>
-								<div class="control-group <?php echo !empty($pgnError)?'error':'';?>">
-									<label class="control-label">pgn</label>
-									<div class="controls">
+								<div class="u-full-width <?php echo !empty($pgnError)?'error':'';?>">
+									<label class="two columns"">pgn</label>
+									<div class="ten columns">
 											<input name="pgn" type="longtext"  placeholder="pgn" value="<?php echo !empty($pgn)?$pgn:'';?>">
 											<?php if (!empty($pgnError)): ?>
 												<span class="help-inline"><?php echo $pgnError;?></span>
 											<?php endif;?>
 									</div>
 								</div>
-								<div class="control-group">
-									<button type="submit" class="btn btn-success">write move</button>
+								<div class="six columns">
+									<button type="submit" class="button-primary">write move</button>
 								</div>
 							</form>
-							<button class="btn" onclick="undomove()">undo</button>
-							<a class="btn" href="index.php">back</a>
-							<button class="btn" onclick="reset()">reset</button>
+							<button onclick="undomove()">reverte</button>
+							<a class="button-primary" href="index.php">domus</a>
+							<button onclick="reset()">novus</button>
 							</div>
 		    		</div>
 						<div class="row">

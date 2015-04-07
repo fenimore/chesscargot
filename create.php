@@ -49,59 +49,72 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <link   href="css/bootstrap.min.css" rel="stylesheet">
-    <script src="js/bootstrap.min.js"></script>
+  <meta charset="utf-8">
+  <title>snail chess</title>
+  <meta name="description" content="">
+  <meta name="author" content="fenimore love">
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="icon" type="image/png" href="img/favicon.png">
 </head>
 
 <body>
     <div class="container">
 
-    			<div class="span10 offset1">
+    			<div class="one-half column">
     				<div class="row">
-		    			<h3>Issue a Challenge or View  Match</h3>
+		    			<h3>provocate</h3>
 		    		</div>
 
-	    			<form class="form-horizontal" action="create.php" method="post">
-					  <div class="control-group <?php echo !empty($infoError)?'error':'';?>">
-					    <label class="control-label">info</label>
-					    <div class="controls">
+	    			<form action="create.php" method="post">
+					  <div class="six columns <?php echo !empty($infoError)?'error':'';?>">
+					    <label>info</label>
+					    <div class="six columns">
 					      	<input name="info" type="text"  placeholder="info" value="<?php echo !empty($info)?$info:'';?>">
 					      	<?php if (!empty($infoError)): ?>
 					      		<span class="help-inline"><?php echo $infoError;?></span>
 					      	<?php endif; ?>
 					    </div>
 					  </div>
-					  <div class="control-group <?php echo !empty($whiteError)?'error':'';?>">
-					    <label class="control-label">white</label>
-					    <div class="controls">
+					  <div class="six columns <?php echo !empty($whiteError)?'error':'';?>">
+					    <label>white</label>
+					    <div>
 					      	<input name="white" type="text" placeholder="white" value="<?php echo !empty($white)?$white:'';?>">
 					      	<?php if (!empty($whiteError)): ?>
 					      		<span class="help-inline"><?php echo $whiteError;?></span>
 					      	<?php endif;?>
 					    </div>
 					  </div>
-					  <div class="control-group <?php echo !empty($blackError)?'error':'';?>">
-					    <label class="control-label">black</label>
-					    <div class="controls">
+					  <div class="six columns <?php echo !empty($blackError)?'error':'';?>">
+					    <label>black</label>
+					    <div>
 					      	<input name="black" type="text"  placeholder="black" value="<?php echo !empty($black)?$black:'';?>">
 					      	<?php if (!empty($blackError)): ?>
 					      		<span class="help-inline"><?php echo $blackError;?></span>
 					      	<?php endif;?>
 					    </div>
 					  </div>
-						<div class="control-group <?php echo !empty($pgnError)?'error':'';?>">
-							<label class="control-label">notation</label>
-							<div class="controls">
+						<div class="u-full-width <?php echo !empty($pgnError)?'error':'';?>">
+							<label >pgn notation</label>
+							<div class="six columns">
 									<input name="pgn" type="text"  placeholder="pgn" value="<?php echo !empty($pgn)?$pgn:'';?>">
 									<?php if (!empty($pgnError)): ?>
 										<span class="help-inline"><?php echo $pgnError;?></span>
 									<?php endif;?>
 							</div>
 						</div>
-					  <div class="form-actions">
-						  <button type="submit" class="btn btn-success">issue new challenge</button>
-						  <a class="btn" href="index.php">Back</a>
+					  <div>
+						  <button type="submit" class="button-primary">incipe</button>
+						  <a class="button" href="index.php">reverte</a>
 						</div>
 					</form>
 				</div>
