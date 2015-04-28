@@ -49,7 +49,7 @@
 			$q = $pdo->prepare($sql);
 			$q->execute(array($info,$white,$black,$pgn,$id));
 			Database::disconnect();
-			header("Location: index.php");
+			header("Location: index.php"); //change to update.php
 		}
 	} else {
 		$pdo = Database::connect();
@@ -70,7 +70,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    	
+
   <meta charset="utf-8">
   <title>snail chess</title>
   <meta name="description" content="">
@@ -115,9 +115,9 @@
 
 <body>
     <div class="container">
-    			<div class="u-full-width">
+    			<div class="u-full-width" style="margin-top:2%;">
 						<div class="row">
-							<div class="six columns">
+							<div class="six columns" style="color:red;">
 								<h5><?php echo !empty($info)?$info:'';?>: <?php echo !empty($white)?$white:'';?> vs <?php echo !empty($black)?$black:'';?></h5>
 							</div>
 							<div class="six columns">
@@ -160,32 +160,28 @@
 									</div>
 								</div>
 								<div class="u-full-width <?php echo !empty($pgnError)?'error':'';?>">
-									<label class="two columns"">pgn</label>
+									<label class="two columns">pgn</label>
 									<div class="ten columns">
-											<input name="pgn" type="longtext"  placeholder="pgn" value="<?php echo !empty($pgn)?$pgn:'';?>">
-											<?php if (!empty($pgnError)): ?>
-												<span class="help-inline"><?php echo $pgnError;?></span>
-											<?php endif;?>
+											<div id="pgnhistory"><?php echo !empty($pgn)?$pgn:'';?></div>
+											<input name="pgn"  placeholder="pgn" value="<?php echo !empty($pgn)?$pgn:'';?>">
 									</div>
 								</div>
-								<div class="six columns">
 									<button type="submit" class="button-primary">write move (type it into input field)</button>
-								</div>
-							</form>
-							<br><br>
-							<button onclick="undomove()">reverte</button>
+							</form></br>
+							<button href="#" onclick="undomove()">reverte</button>
+							<button href="#" onclick="reset()">novus</button>
 							<a class="button button-primary" href="index.php">domus</a>
-							<button onclick="reset()">novus</button>
+
 							</div>
 		    		</div>
-						<div class="row">
+						<div class="row"><br><hr>
 							<div style="font-size:9px">FEN position:
 					        <span id="fen"></span>
 					  </div>
 					</div>
 			</div>
 
-    </div> <!-- /container -->
+    </div>
 
 		<script language="javascript" type="text/javascript">
 		    var board,
