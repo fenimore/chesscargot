@@ -49,7 +49,7 @@
 			$q = $pdo->prepare($sql);
 			$q->execute(array($info,$white,$black,$pgn,$id));
 			Database::disconnect();
-			header("Location: index.php"); //change to update.php
+			header("Location: update.php"); //change to update.php OR should I??????
 		}
 	} else {
 		$pdo = Database::connect();
@@ -97,6 +97,22 @@
 		#entry, #pgn {
       font-family:monospace;
     }
+		.menu {
+			height: auto;
+			margin-left: 30%;
+			margin-right: auto;
+		}
+		#nav {
+			background:#e8e8e8;
+			color:#6ab293;
+			font-size: 1em;
+			top: 0px;
+			width:100%
+		}
+		#nav a {
+			color:#6ab293;
+			text-transform: uppercase;
+		}
 		</style>
 		<script>
 		function reset(){
@@ -114,10 +130,16 @@
 </head>
 
 <body>
+	<div class="row" id="nav">
+		<div class="u-full-width menu"> <a class="button" onclick="reset()">novus</a>
+							<a class="button button-primary" style="color:white" href="index.php">domus</a>
+		</div>
+	</div>
+
     <div class="container">
     			<div class="u-full-width" style="margin-top:2%;">
 						<div class="row">
-							<div class="six columns" style="color:red;">
+							<div class="six columns" style="color:#6ab293;">
 								<h5><?php echo !empty($info)?$info:'';?>: <?php echo !empty($white)?$white:'';?> vs <?php echo !empty($black)?$black:'';?></h5>
 							</div>
 							<div class="six columns">
@@ -129,7 +151,7 @@
 								<div id="board" style="width: 350px"></div>
 							</div>
 							<div class="six columns">
-								<p>Status: &nbsp;<span style="color:green" id="status"></span></p>
+								<p>Status: &nbsp;<span style="color:#6ab293" id="status"></span></p>
 			          <p><br><span id="pgn"></span></p>
 								<form name="chessconsole" action="update.php?id=<?php echo $id?>" method="post">
 								<div style="display:none" <?php echo !empty($infoError)?'error':'';?>">
@@ -169,9 +191,6 @@
 									<button type="submit" class="button-primary">write move (type it into input field)</button>
 							</form></br>
 							<button href="#" onclick="undomove()">reverte</button>
-							<button href="#" onclick="reset()">novus</button>
-							<a class="button button-primary" href="index.php">domus</a>
-
 							</div>
 		    		</div>
 						<div class="row"><br><hr>

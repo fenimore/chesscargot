@@ -20,29 +20,36 @@
 
     <style>
       #splash {
-        width: 100px;
+        width: 50px;
         height: auto;
       }
-      body {font-family:monospace;}
+      #nav {
+        background:#e8e8e8;
+        color:#6ab293;
+        position: fixed;
+        top: 0px;
+        width:100%;
+      }
+      table {font-family:monospace;}
     </style>
 </head>
 
 <body>
+  <div class="row" id="nav">
+    <div class="one-half column" style="text-align:right;">
+      <h4>Chess </h4>
+    </div>
+    <div class="one-half column">
+      <img id="splash" src="img/play.png" />
+    </div>
+  </div>
     <div class="container">
-    		<div class="row">
-          <div class="one-half column">
-            <h3>Chess Index</h3>
-          </div>
-          <div class="one-half column">
-            <img id="splash" src="img/play.png" />
-          </div>
 
-    		</div>
-			<div class="row">
-				<p>
+			<div class="row" style="margin-top:10%">
+        <p>
 					<a href="create.php" class="button button-primary">provocate</a>
-				</p>
-
+          <a href="about.html" class="button">about</a>
+        </p>
 				<table class="table table-striped table-bordered">
 		              <thead>
 		                <tr>
@@ -75,6 +82,10 @@
 					  ?>
 				      </tbody>
 	            </table>
+	            <a href="http://polypmer.org">Fenimore Love</a> | 2015  - <a href="https://github.com/polypmer/chesscargot">source code (GPL)</a>
+	            <hr>
+	            <br>
+	            <br>
     	</div>
     </div> <!-- /container -->
   </body>
