@@ -2,7 +2,7 @@
 <img src="https://github.com/polypmer/chesscargot/blob/master/img/play.png?raw=true" width="100px"></img>
 <p>This chess client uses chess.js and <a href="http://chessboardjs.com">chessboard.js</a> and uses PHP/MySql. It is for playing slow games of chess.</p><p> This code is intended to be loaded onto a server as a private game database where no logins are required; though I'm thinking of adding a simply authentication/password splash page, for security against vandalism. Check out my <a href="http://play.plyp.org">instance</a>, and challenge me at chess.
 </p>
-##Future Features:
+##Planned Features:
 <ul>
 <li>Add game viewer, eg. forward as well as undo button. (this seems somehow possible).</li>
 <li>Integrate status (Black/White to Move - this'll be tricky):</li>
@@ -14,7 +14,11 @@
 </ul>
 
 ###Dependencies:
-Php<br>MySQL<br><a href="https://getskeleton.com">Skeleton css</a> (modified and included)
+<ul>
+<li>Php</li>
+<li>MySQL</li>
+<li><a href="https://getskeleton.com">Skeleton css</a> (modified and included)</li>
+</ul>
 
 ###Broken:
 nothing?
