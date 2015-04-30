@@ -50,7 +50,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>snail chess</title>
+  <title>echesscargot</title>
   <meta name="description" content="">
   <meta name="author" content="fenimore love">
 
@@ -64,61 +64,50 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/skeleton.css">
+	<link rel="stylesheet" href="css/style.css">
   <link rel="icon" type="image/png" href="img/favicon.png">
 </head>
 
 <body>
     <div class="container">
-
-    			<div class="one-half column">
-    				<div class="row">
-		    			<h3>provocate</h3>
-		    		</div>
-
-	    			<form action="create.php" method="post">
-					  <div class="six columns <?php echo !empty($infoError)?'error':'';?>">
+    			<div class="row">
+		    			<h3>Créer</h3>
+		    	</div>
+	    	<form action="create.php" method="post">
+					<div class="row">
 					    <label>info</label>
-					    <div class="six columns">
-					      	<input name="info" type="text"  placeholder="info" value="<?php echo !empty($info)?$info:'';?>">
-					      	<?php if (!empty($infoError)): ?>
-					      		<span class="help-inline"><?php echo $infoError;?></span>
-					      	<?php endif; ?>
+					    <div class="one-half columns">
+					      	<input name="info" type="text"  class="create-button" placeholder="info" value="<?php echo !empty($info)?$info:'';?>">
 					    </div>
-					  </div>
-					  <div class="six columns <?php echo !empty($whiteError)?'error':'';?>">
-					    <label>white</label>
+					</div>
+					<div class="row">
+						<div class="one-third columns">
+					    <label>blanc</label>
 					    <div>
-					      	<input name="white" type="text" placeholder="white" value="<?php echo !empty($white)?$white:'';?>">
-					      	<?php if (!empty($whiteError)): ?>
-					      		<span class="help-inline"><?php echo $whiteError;?></span>
-					      	<?php endif;?>
+					      	<input name="white" type="text" class="create-button" placeholder="nom de blanc" value="<?php echo !empty($white)?$white:'';?>">
 					    </div>
-					  </div>
-					  <div class="six columns <?php echo !empty($blackError)?'error':'';?>">
-					    <label>black</label>
+						</div>
+						<div class="one-third columns">
+					    <label>noir</label>
 					    <div>
-					      	<input name="black" type="text"  placeholder="black" value="<?php echo !empty($black)?$black:'';?>">
-					      	<?php if (!empty($blackError)): ?>
-					      		<span class="help-inline"><?php echo $blackError;?></span>
-					      	<?php endif;?>
+					      	<input name="black" class="create-button" type="text" placeholder="nom de noir" value="<?php echo !empty($black)?$black:'';?>">
 					    </div>
-					  </div>
-						<div class="u-full-width <?php echo !empty($pgnError)?'error':'';?>">
-							<label >pgn notation</label>
-							<div class="six columns">
-									<input name="pgn" type="text"  placeholder="pgn" value="<?php echo !empty($pgn)?$pgn:'';?>">
-									<?php if (!empty($pgnError)): ?>
-										<span class="help-inline"><?php echo $pgnError;?></span>
-									<?php endif;?>
+						</div>
+					</div>
+					<div class="row">
+							<label>notation pgn</label>
+							<div class="one-third columns">
+									<input name="pgn" type="text"  class="create-button" placeholder="coup d'ouverture" value="<?php echo !empty($pgn)?$pgn:'';?>">
 							</div>
+					</div>
+					<div class="row">
+					  <div class="u-full-width">
+						  <button type="submit" class="button-primary create-button">commence</button>
+						  <a class="button create-button" href="index.php">archive</a>
+							<a class="button create-button" href="about.html">apropo</a>
 						</div>
-					  <div>
-						  <button type="submit" class="button-primary">incipe</button>
-						  <a class="button" href="index.php">reverte</a>
-						</div>
-					</form>
-				</div>
-
-    </div> <!-- /container -->
+					</div>
+				</form><!-- form -->
+    </div> <!-- container -->
   </body>
 </html>

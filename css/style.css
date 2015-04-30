@@ -1,3 +1,15 @@
+#nav {
+  background:#e8e8e8;
+  color:#6ab293;
+  top: 0px;
+  width:100%
+}
+#splash {
+  width: 61px;
+  height: auto;
+  display:none;
+}
+
 
 hr {
   border-color: #e8e8e8;
@@ -14,17 +26,39 @@ textarea, input {
   width: 318px;
 }
 
+
+
 #board {
   width: 300px;
 }
-@media (min-width: 700px) {
-  #board {
-    width: 300px;
+
+.index-nav {
+  text-align: left;
+  vertical-align: middle;
+}
+/* Bigger than Phablet */
+@media (min-width: 550px) {
+  #splash {
+    display: block;
+  }
+  .index-nav {
+    text-align: right;
   }
 }
-/* Bigger than 550 */
-@media (min-width: 550px) {
+/* Bigger than 930 */
+@media (min-width: 938px) {
   #board {
     width: 400px;
   }
+}
+
+.create-button {
+  width: 150px;
+}
+
+.index-button {
+  width:130px;
+}
+.nav-button {
+  width:120px;
 }

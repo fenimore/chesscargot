@@ -20,43 +20,35 @@
   <link rel="icon" type="img/png" href="img/favicon.png">
 
     <style>
-      #splash {
-        width: 50px;
-        height: auto;
-      }
-      #nav {
-        background:#e8e8e8;
-        color:#6ab293;
-        top: 0px;
-        width:100%;
-      }
       table {font-family:monospace;}
     </style>
 </head>
 
 <body>
   <div class="row" id="nav">
-    <div class="one-half column" style="text-align:right;">
-      <h4>Chess </h4>
+<div class="container">
+    <div class="three columns index-nav">
+      <h4>Echecs &nbsp;&nbsp;&nbsp;&nbsp;</h4>
     </div>
-    <div class="one-half column">
+    <div class="two columns">
       <img id="splash" src="img/play.png" />
     </div>
+</div>
   </div>
     <div class="container">
 
 			<div class="row" style="margin-top:2%">
         <p>
-					<a href="create.php" class="button button-primary">provocate</a>
-          <a href="about.html" class="button">about</a>
+					<a href="create.php" class="button button-primary">nouveau</a>
+          <a href="about.html" class="button">a propos</a>
         </p>
 				<table class="table table-striped table-bordered">
 		              <thead>
 		                <tr>
 		                  <th>info</th>
-		                  <th>white</th>
-		                  <th>black</th>
-		                  <th>history</th>
+		                  <th>blanc</th>
+		                  <th>noir</th>
+		                  <th>notation pgn</th>
 		                </tr>
 		              </thead>
 		              <tbody>
@@ -71,10 +63,10 @@
 							   	echo '<td>'. $row['black'] . '</td>';
                   echo '<td>'. $row['pgn'] . '</td>';
 							   	echo '<td width=250>';
-							   	echo '<a class="button button-primary" href="update.php?id='.$row['id'].'">load game</a>';
+							   	echo '<a class="button button-primary index-button" href="update.php?id='.$row['id'].'">Charger</a>';
 							   	echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
 								echo '<br><br>';
-							   	echo '<a class="button" href="delete.php?id='.$row['id'].'">remove</a>';
+							   	echo '<a class="button index-button" href="delete.php?id='.$row['id'].'">supprimer</a>';
 							   	echo '</td>';
 							   	echo '</tr>';
 					   }
@@ -82,8 +74,7 @@
 					  ?>
 				      </tbody>
 	            </table>
-	            <a href="http://polypmer.org">Fenimore Love</a> | 2015  - <a href="https://github.com/polypmer/chesscargot">source code (GPL)</a>
-	            <hr>
+	            <a href="http://polypmer.org">Fenimore Love</a> | 2015  - <a href="https://github.com/polypmer/chesscargot">code source (GPL)</a>
 	            <br>
 	            <br>
     	</div>

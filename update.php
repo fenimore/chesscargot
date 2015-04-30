@@ -99,22 +99,7 @@
 		#entry, #pgn {
       font-family:monospace;
     }
-		.menu {
-			height: auto;
-			margin-left: 30%;
-			margin-right: auto;
-		}
-		#nav {
-			background:#e8e8e8;
-			color:#6ab293;
-			font-size: 1em;
-			top: 0px;
-			width:100%
-		}
-		#nav a {
-			color:#6ab293;
-			text-transform: uppercase;
-		}
+
 		</style>
 		<script>
 		function reset(){
@@ -128,24 +113,28 @@
 		  //var board = new ChessBoard('board', game.fen());
 		  //game.load(board.fen());
 		}
+		function copymove(){
+			document.getElementById("pgninput").value = game.pgn();
+		}
 		</script>
 </head>
 
 <body>
 	<div class="row" id="nav">
-		<div class="u-full-width menu"> <a class="button" style="margin-top:1%;" onclick="reset()">novus</a>
-							<a class="button button-primary" style="color:white;margin-top:1%;" href="index.php">domus</a>
+<div class="container">
+		<div class="u-full-width">
+			<a class="button nav-button" style="margin-top:1%;" onclick="reset()">dégager</a>
+			<a class="button nav-button" style="margin-top:1%" href="create.php">nouveau</a>
+			<a class="button button-primary nav-button" style="color:white;margin-top:1%;" href="index.php">retour</a>
 		</div>
+</div>
 	</div>
 
     <div class="container">
     			<div class="u-full-width" style="margin-top:2%;">
 						<div class="row">
 							<div class="six columns" style="color:#6ab293;">
-								<h5><?php echo !empty($info)?$info:'';?>: <?php echo !empty($white)?$white:'';?> vs <?php echo !empty($black)?$black:'';?></h5>
-							</div>
-							<div class="six columns">
-
+								<h5><small><?php echo !empty($info)?$info:'';?>: &nbsp;</small><?php echo !empty($white)?$white:'';?>&nbsp;<small>contre</small>&nbsp; <?php echo !empty($black)?$black:'';?></h5>
 							</div>
 						</div>
     				<div class="row">
@@ -153,8 +142,8 @@
 								<div id="board"></div>
 							</div>
 							<div class="six columns">
-								<p>Status: &nbsp;<span style="color:#6ab293" id="status"></span></p>
-			          <p><label>board history</label><br><span id="pgn"></span></p>
+								<p>Etat: &nbsp;<span style="color:#6ab293" id="status"></span></p>
+			          <p><label>L'échiquier</label><br><span id="pgn"></span></p>
 								<form name="chessconsole" action="update.php?id=<?php echo $id?>" method="post">
 								<div style="display:none">
 									<label class="u-full-width">info</label>
@@ -165,26 +154,30 @@
 								<div style="display:none" class="u-full-width <?php echo !empty($whiteError)?'error':'';?>">
 									<label class="u-full-width">white</label>
 									<div>
-											<input name="white" type="text" placeholder="white" value="<?php echo !empty($white)?$white:'';?>">
+											<input name="white" type="text" placeholder="nom de blanch" value="<?php echo !empty($white)?$white:'';?>">
 									</div>
 								</div>
 								<div style="display:none" class="u-full-width <?php echo !empty($blackError)?'error':'';?>">
 									<label class="u-full-width">black</label>
 									<div>
-											<input name="black" type="text"  placeholder="black" value="<?php echo !empty($black)?$black:'';?>">
+											<input name="black" type="text"  placeholder="nom de noir" value="<?php echo !empty($black)?$black:'';?>">
 									</div>
 								</div>
 								<div class="u-full-width">
-									<label>pgn input</label><br>
-											<textarea name="pgn" placeholder="pgn"><?php echo !empty($pgn)?$pgn:'';?></textarea>
+									<label>notation pgn</label><br>
+											<textarea name="pgn" id="pgninput" placeholder="pgn"><?php echo !empty($pgn)?$pgn:'';?></textarea>
 								</div>
-									<button type="submit" class="button-primary">write move (type it into input field)</button>
+									<button type="submit" class="button-primary index-button">
+										sauvegarder</button>
 							</form>
-							<button href="#" onclick="undomove()">reverte</button>
+							<button class="index-button" href="#" onclick="copymove()">
+								copier</button>
+							<button class="index-button" href="#" onclick="undomove()">
+								défaire</button>
 							</div>
 		    		</div>
 						<div class="row"><br><hr>
-							<div style="font-size:9px">FEN position:
+							<div style="font-size:9px">position de FEN:
 					        <span id="fen"></span>
 					  </div>
 					</div>
