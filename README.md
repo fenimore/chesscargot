@@ -24,5 +24,4 @@ Php<br>MySQL<br><a href="https://getskeleton.com">Skeleton css</a> (included)
 
 ###Screenshots:
 <img src="http://play.plyp.org/img/play_screen.png" width="400px"></img>
-<br>
 <img src="http://play.plyp.org/img/db_screen.png" width="400px"></img>
