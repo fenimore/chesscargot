@@ -49,7 +49,7 @@
 			$q = $pdo->prepare($sql);
 			$q->execute(array($info,$white,$black,$pgn,$id));
 			Database::disconnect();
-			header("Location: update.php"); //change to update.php OR should I??????
+			header("Location: index.php"); //change to update.php OR should I??????
 		}
 	} else {
 		$pdo = Database::connect();
@@ -92,6 +92,7 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/json3/3.3.2/json3.min.js"></script>
 		<script src="js/chessboard-0.3.0.js"></script>
 		<script src="js/chess.min.js"></script>
+		<link rel="stylesheet" href="css/style.css">
 		<link rel="icon" type="image/png" href="img/favicon.png">
 		<style>
 		#entry, #pgn {
@@ -131,8 +132,8 @@
 
 <body>
 	<div class="row" id="nav">
-		<div class="u-full-width menu"> <a class="button" onclick="reset()">novus</a>
-							<a class="button button-primary" style="color:white" href="index.php">domus</a>
+		<div class="u-full-width menu"> <a class="button" style="margin-top:1%;" onclick="reset()">novus</a>
+							<a class="button button-primary" style="color:white;margin-top:1%;" href="index.php">domus</a>
 		</div>
 	</div>
 
@@ -158,27 +159,18 @@
 									<label class="u-full-width">info</label>
 									<div class="u-full-width">
 											<input name="info" type="text"  placeholder="info" value="<?php echo !empty($info)?$info:'';?>">
-											<?php if (!empty($infoError)): ?>
-												<span class="help-inline"><?php echo $infoError;?></span>
-											<?php endif; ?>
 									</div>
 								</div>
 								<div style="display:none" class="u-full-width <?php echo !empty($whiteError)?'error':'';?>">
 									<label class="u-full-width">white</label>
 									<div>
 											<input name="white" type="text" placeholder="white" value="<?php echo !empty($white)?$white:'';?>">
-											<?php if (!empty($whiteError)): ?>
-												<span class="help-inline"><?php echo $whiteError;?></span>
-											<?php endif;?>
 									</div>
 								</div>
 								<div style="display:none" class="u-full-width <?php echo !empty($blackError)?'error':'';?>">
 									<label class="u-full-width">black</label>
 									<div>
 											<input name="black" type="text"  placeholder="black" value="<?php echo !empty($black)?$black:'';?>">
-											<?php if (!empty($blackError)): ?>
-												<span class="help-inline"><?php echo $blackError;?></span>
-											<?php endif;?>
 									</div>
 								</div>
 								<div class="u-full-width <?php echo !empty($pgnError)?'error':'';?>">

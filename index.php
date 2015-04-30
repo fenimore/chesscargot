@@ -16,6 +16,7 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="stylesheet" href="css/style.css">
   <link rel="icon" type="img/png" href="img/favicon.png">
 
     <style>
@@ -26,7 +27,6 @@
       #nav {
         background:#e8e8e8;
         color:#6ab293;
-        position: fixed;
         top: 0px;
         width:100%;
       }
@@ -45,7 +45,7 @@
   </div>
     <div class="container">
 
-			<div class="row" style="margin-top:10%">
+			<div class="row" style="margin-top:2%">
         <p>
 					<a href="create.php" class="button button-primary">provocate</a>
           <a href="about.html" class="button">about</a>

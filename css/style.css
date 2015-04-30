@@ -1,0 +1,14 @@
+
+hr {
+  border-color: #e8e8e8;
+}
+
+a{
+  color:#6ab293;
+}
+a:hover {
+  color:green;
+}
+textarea, input {
+  font-family:monospace;
+}
