@@ -13,6 +13,7 @@ add write-move directly from the board's position/history (but maybe this isn't 
 footer?
 <li>the delete page is not pretty
 </li><li>email moves, or ping the next move</li>
+<li>change language from latin?</li>
 <li>highlight whose turn it is in the database table.</li>
 </ul>
 
