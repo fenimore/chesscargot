@@ -11,4 +11,20 @@ a:hover {
 }
 textarea, input {
   font-family:monospace;
+  width: 318px;
+}
+
+#board {
+  width: 300px;
+}
+@media (min-width: 700px) {
+  #board {
+    width: 300px;
+  }
+}
+/* Bigger than 550 */
+@media (min-width: 550px) {
+  #board {
+    width: 400px;
+  }
 }

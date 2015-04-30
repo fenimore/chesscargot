@@ -95,6 +95,7 @@
 		<link rel="stylesheet" href="css/style.css">
 		<link rel="icon" type="image/png" href="img/favicon.png">
 		<style>
+
 		#entry, #pgn {
       font-family:monospace;
     }
@@ -149,13 +150,13 @@
 						</div>
     				<div class="row">
 							<div class="six columns">
-								<div id="board" style="width: 350px"></div>
+								<div id="board"></div>
 							</div>
 							<div class="six columns">
 								<p>Status: &nbsp;<span style="color:#6ab293" id="status"></span></p>
-			          <p><br><span id="pgn"></span></p>
+			          <p><label>board history</label><br><span id="pgn"></span></p>
 								<form name="chessconsole" action="update.php?id=<?php echo $id?>" method="post">
-								<div style="display:none" <?php echo !empty($infoError)?'error':'';?>">
+								<div style="display:none">
 									<label class="u-full-width">info</label>
 									<div class="u-full-width">
 											<input name="info" type="text"  placeholder="info" value="<?php echo !empty($info)?$info:'';?>">
@@ -173,15 +174,12 @@
 											<input name="black" type="text"  placeholder="black" value="<?php echo !empty($black)?$black:'';?>">
 									</div>
 								</div>
-								<div class="u-full-width <?php echo !empty($pgnError)?'error':'';?>">
-									<label class="two columns">pgn</label>
-									<div class="ten columns">
-											<div id="pgnhistory"><?php echo !empty($pgn)?$pgn:'';?></div>
-											<input name="pgn"  placeholder="pgn" value="<?php echo !empty($pgn)?$pgn:'';?>">
-									</div>
+								<div class="u-full-width">
+									<label>pgn input</label><br>
+											<textarea name="pgn" placeholder="pgn"><?php echo !empty($pgn)?$pgn:'';?></textarea>
 								</div>
 									<button type="submit" class="button-primary">write move (type it into input field)</button>
-							</form></br>
+							</form>
 							<button href="#" onclick="undomove()">reverte</button>
 							</div>
 		    		</div>
