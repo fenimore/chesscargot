@@ -17,12 +17,14 @@
 		$whiteError = null;
 		$blackError = null;
 		$pgnError = null;
+		$commentsError = null;
 
 		// keep track post values
 		$info = $_POST['info'];
 		$white = $_POST['white'];
 		$black = $_POST['black'];
 		$pgn = $_POST['pgn'];
+		$comments = $_POST['comments'];
 
 		// validate input
 		$valid = true;
@@ -45,9 +47,9 @@
 		if ($valid) {
 			$pdo = Database::connect();
 			$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-			$sql = "UPDATE chessgames  set info = ?, white = ?, black =?, pgn =? WHERE id = ?";
+			$sql = "UPDATE chessgames  set info = ?, white = ?, black =?, pgn =?, comments =? WHERE id = ?";
 			$q = $pdo->prepare($sql);
-			$q->execute(array($info,$white,$black,$pgn,$id));
+			$q->execute(array($info,$white,$black,$pgn, $comments, $id));
 			Database::disconnect();
 			header("Location: index.php"); //change to update.php OR should I??????
 		}
@@ -62,6 +64,7 @@
 		$white = $data['white'];
 		$black = $data['black'];
 		$pgn = $data['pgn'];
+		$comments = $data['comments'];
 		Database::disconnect();
 	}
 ?>
@@ -133,8 +136,13 @@
     <div class="container">
     			<div class="u-full-width" style="margin-top:2%;">
 						<div class="row">
-							<div class="six columns" style="color:#6ab293;">
-								<h5><small><?php echo !empty($info)?$info:'';?>: &nbsp;</small><?php echo !empty($white)?$white:'';?>&nbsp;<small>contre</small>&nbsp; <?php echo !empty($black)?$black:'';?></h5>
+							<div class="six columns">
+								<h5><small style="color:#6ab293;"><?php echo !empty($info)?$info:'';?>:&nbsp;</small>
+									<?php echo !empty($white)?$white:'';?>&nbsp;<small style="color:#6ab293;">contre</small>&nbsp;
+									<?php echo !empty($black)?$black:'';?></h5>
+							</div>
+							<div class="six columns">
+								<h5><span style="color:black" id="status"></span></h5>
 							</div>
 						</div>
     				<div class="row">
@@ -142,8 +150,7 @@
 								<div id="board"></div>
 							</div>
 							<div class="six columns">
-								<p>Etat: &nbsp;<span style="color:#6ab293" id="status"></span></p>
-			          <p><label>L'échiquier</label><br><span id="pgn"></span></p>
+								<span title="Celui-ci contient l'état de l'échiquier"><label>L'échiquier: </label><span id="pgn"></span></span>
 								<form name="chessconsole" action="update.php?id=<?php echo $id?>" method="post">
 								<div style="display:none">
 									<label class="u-full-width">info</label>
@@ -152,23 +159,28 @@
 									</div>
 								</div>
 								<div style="display:none" class="u-full-width <?php echo !empty($whiteError)?'error':'';?>">
-									<label class="u-full-width">white</label>
+									<label class="u-full-width">blanc</label>
 									<div>
 											<input name="white" type="text" placeholder="nom de blanch" value="<?php echo !empty($white)?$white:'';?>">
 									</div>
 								</div>
 								<div style="display:none" class="u-full-width <?php echo !empty($blackError)?'error':'';?>">
-									<label class="u-full-width">black</label>
+									<label class="u-full-width">noir</label>
 									<div>
 											<input name="black" type="text"  placeholder="nom de noir" value="<?php echo !empty($black)?$black:'';?>">
 									</div>
 								</div>
 								<div class="u-full-width">
-									<label>notation pgn</label><br>
+									<span title="Celui-ci contient l'état de le base des données."><label>Notation pgn</label><br></span>
 											<textarea name="pgn" id="pgninput" placeholder="pgn"><?php echo !empty($pgn)?$pgn:'';?></textarea>
+									<span title="Laissez un commentaire ici."><label>Commentaires</label><br></span>
+											<textarea name="comments" id="commentary" placeholder="comments"><?php echo !empty($comments)?$comments:'';?></textarea>
 								</div>
 									<button type="submit" class="button-primary index-button">
-										sauvegarder</button>
+										sauvegarder</button> &nbsp;&nbsp;&nbsp;&nbsp;
+										<span title="| FR | Ce qu’est dans la boîte 'notation PGN' sera ajouter à le base des données. Si tu veux copier automatiquement le changements d'échiquier à les données, clique le bouton ‘Copier’ et puis clique ‘Sauvegarder.’
+
+| EN | The moves inside 'notation PGN' will be added to the database. If you want to automatically copy the changes you’ve made on the board to the input field, click the ‘Copier’ button and then click ‘Sauvegarder’ (save).">Aide | Help</span>
 							</form>
 							<button class="index-button" href="#" onclick="copymove()">
 								copier</button>
@@ -177,7 +189,7 @@
 							</div>
 		    		</div>
 						<div class="row"><br><hr>
-							<div style="font-size:9px">position de FEN:
+							<div style="font-size:9px"><label>position de FEN:</label>
 					        <span id="fen"></span>
 					  </div>
 					</div>
@@ -221,24 +233,24 @@
 		    };
 		    var updateStatus = function() {
 		      var status = '';
-		      var moveColor = 'White';
+		      var moveColor = 'Blanc';
 		      if (game.turn() === 'b') {
-		        moveColor = 'Black';
+		        moveColor = 'Noir';
 		      }
 		      // checkmate?
 		      if (game.in_checkmate() === true) {
-		        status = 'Game over, ' + moveColor + ' is in checkmate.';
+		        status = 'Échec et mat, ' + moveColor + ' perd';
 		      }
 		      // draw?
 		      else if (game.in_draw() === true) {
-		        status = 'Game over, drawn position';
+		        status = 'Nulle, fin de la partie';
 		      }
 		      // game still on
 		      else {
-		        status = moveColor + ' to move';
+		        status = moveColor + ' à couper';
 		        // check?
 		        if (game.in_check() === true) {
-		          status += ', ' + moveColor + ' is in check';
+		          status += ', ' + moveColor + ' en échec';
 		        }
 		      }
 		      statusEl.html(status);
