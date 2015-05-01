@@ -3,10 +3,11 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Chesscargot by polypmer</title>
+    <title>Echesscargot by polypmer</title>
 
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -15,58 +16,87 @@
   <body>
     <div class="wrapper">
       <header>
-        <h1>Chesscargot</h1>
-        <p>chess client using chess.js and chessboard.js written in PHP/MySql</p>
-
-        <p class="view"><a href="https://github.com/polypmer/chesscargot">View the Project on GitHub <small>polypmer/chesscargot</small></a></p>
-
+        <h1 class="header">Echesscargot</h1>
+        <p class="header">A snail-slow chess client using chess.js and chessboard.js written in PHP/MySql.</p>
 
         <ul>
-          <li><a href="https://github.com/polypmer/chesscargot/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/polypmer/chesscargot/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/polypmer/chesscargot">View On <strong>GitHub</strong></a></li>
+          <li class="download"><a class="buttons" href="https://github.com/polypmer/chesscargot/zipball/master">Download ZIP</a></li>
+          <li class="download"><a class="buttons" href="https://github.com/polypmer/chesscargot/tarball/master">Download TAR</a></li>
+          <li><a class="buttons github" href="https://github.com/polypmer/chesscargot">View On GitHub</a></li>
         </ul>
+
+        <p class="header">This project is maintained by <a class="header name" href="https://github.com/polypmer">polypmer</a></p>
+
+
       </header>
       <section>
         <h1>
-<a id="snail-chess--echesscargot" class="anchor" href="#snail-chess--echesscargot" aria-hidden="true"><span class="octicon octicon-link"></span></a>Snail Chess || Echesscargot</h1>
+<a id="snail-chess--echesscargot" class="anchor" href="#snail-chess--echesscargot" aria-hidden="true"><span class="octicon octicon-link"></span></a>Snail Chess | Echesscargot</h1>
 
-<p><img src="https://github.com/polypmer/chesscargot/blob/master/img/play.png?raw=true" width="100px"></p>
+<p><img src="https://github.com/polypmer/chesscargot/blob/master/img/play.png?raw=true" width="150px"></p>
 
-<p>This chess client uses chess.js and <a href="http://chessboardjs.com">chessboard.js</a> and uses PHP/MySql. It is for playing slow games of chess.</p><p> This code is intended to be loaded onto a server as a private game database where no logins are required; though I'm thinking of adding a simply authentication/password splash page, for security against vandalism. Check out my <a href="http://play.plyp.org">instance</a>, and challenge me at chess.
+<p>| FR | Celui-ci est un base des donnees que peux se utiliser par n’importe
+ qui. Il est pour les jeux lents, comme un escargot, et les jeux privés.
+ Le logiciel d'échecs utilise deux bibliothèques très raffiné:
+ <a href="http://chessboardjs.com/">chessboard.js</a> pour l'échiquier
+ et <a href="https://github.com/jhlywa/chess.js/">chess.js</a>
+ pour la validation des coups.
+ </p>
+<p>| EN | This chess client uses chess.js and <a href="http://chessboardjs.com">chessboard.js</a> and uses PHP/MySql. It is for playing slow games of chess.</p><p> This code is intended to be loaded onto a server as a private game database where no logins are required; though I'm thinking of adding a simply authentication/password splash page, for security against vandalism. Check out my <a href="http://play.plyp.org">instance</a>, and challenge me at chess.
 </p>
 
 <h2>
-<a id="future-features" class="anchor" href="#future-features" aria-hidden="true"><span class="octicon octicon-link"></span></a>Future Features:</h2>
+<a id="features" class="anchor" href="#features" aria-hidden="true"><span class="octicon octicon-link"></span></a>Features:</h2>
 
 <ul>
-<li>add game viewer, eg. forward as well as undo button.</li>
-<li>email moves, or ping the next move</li>
-<li>highlight whose turn it is in the database table.</li>
+  <li>Undo button.</li>
+  <li>Comments section.</li>
+  <li>Mostly mobile-friendly.</li>
+</ul>
+
+<h2>
+<a id="planned-features" class="anchor" href="#planned-features" aria-hidden="true"><span class="octicon octicon-link"></span></a>Planned Features:</h2>
+
+<ul>
+  <li>Add game viewer, eg. forward as well as undo button. (this seems somehow possible).</li>
+  <li>Integrate status (Black/White to Move - this'll be tricky):</li>
+    <ul>
+      <li>Email move, or ping the next mover.</li>
+      <li>Highlight the player whose turn it is in the database table.</li>
+    </ul>
 </ul>
 
 <h3>
 <a id="dependencies" class="anchor" href="#dependencies" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dependencies:</h3>
 
-<p>Php<br>MySQL<br><a href="https://getskeleton.com">Skeleton css</a> (modified and included)</p>
+<ul>
+  <li>Php</li>
+  <li>MySQL</li>
+  <li>
+<a href="https://getskeleton.com">Skeleton css</a> (modified and included)</li>
+</ul>
+
+<h3>
+<a id="database-initialization" class="anchor" href="#database-initialization" aria-hidden="true"><span class="octicon octicon-link"></span></a>Database Initialization:</h3>
+
+<p>The required database has 5 columns: id (autoincrement), info, black, white, pgn, comments. These last two are type longtext. All columns are not-null &amp; utf8. In order to set up a chesscargot instance, fill out the localhost/database/username information in the database.php file and create a database with the appropriate tables.</p>
 
 <h3>
 <a id="broken" class="anchor" href="#broken" aria-hidden="true"><span class="octicon octicon-link"></span></a>Broken:</h3>
 
-<p>nothing?</p>
+<p>nothing?!</p>
 
 <h3>
 <a id="screenshots" class="anchor" href="#screenshots" aria-hidden="true"><span class="octicon octicon-link"></span></a>Screenshots:</h3>
 
-<p><img src="http://play.plyp.org/img/play_screen.png" width="400px">
-<img src="http://play.plyp.org/img/db_screen.png" width="400px"></p>
+<p><img src="http://play.plyp.org/img/db_screen.png" width="400px">
+<img src="http://play.plyp.org/img/play_screen.png" width="400px"></p>
       </section>
       <footer>
-        <p>This project is maintained by <a href="https://github.com/polypmer">polypmer</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+        <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
       </footer>
     </div>
-    <script src="javascripts/scale.fix.js"></script>
-    
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+		
   </body>
 </html>
