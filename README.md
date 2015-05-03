@@ -18,7 +18,7 @@
 ##Planned Features:
 <ul>
   <li>Add game viewer, eg. forward as well as undo button. (this seems somehow possible).</li>
-  <li>htaccess file</li>
+  <li>htaccess file.</li>
   <li>Integrate status (Black/White to Move - this'll be tricky):</li>
     <ul>
       <li>Email move, or ping the next mover.</li>
@@ -27,9 +27,10 @@
 </ul>
 ###Dependencies:
 <ul>
-  <li>Php</li>
+  <li>PHP</li>
   <li>MySQL</li>
   <li><a href="https://getskeleton.com">Skeleton css</a> (modified and included)</li>
+  <li> <a href="http://chessboardjs.com/">chessboard.js</a> and <a href="https://github.com/jhlywa/chess.js/">chess.js</a></li>
 </ul>
 ###Database Initialization:
 The required database has 5 columns: id (autoincrement), info, black, white, pgn, comments. These last two are type longtext. All columns are not-null & utf8. In order to set up a chesscargot instance, fill out the localhost/database/username information in the database.php file and create a database with the appropriate tables.
