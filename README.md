@@ -12,12 +12,12 @@
 ##Features:
 <ul>
   <li>Undo button.</li>
+  <li>Back/Next buttons for viewing the history of a game.</li>
   <li>Comments section.</li>
   <li>Mostly mobile-friendly.</li>
 </ul>
 ##Planned Features:
 <ul>
-  <li>Add game viewer, eg. forward as well as undo button. (this seems somehow possible).</li>
   <li>htaccess file.</li>
   <li>Integrate status (Black/White to Move - this'll be tricky):</li>
     <ul>

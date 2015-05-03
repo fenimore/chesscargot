@@ -75,7 +75,7 @@
 <head>
 
   <meta charset="utf-8">
-  <title>snail chess</title>
+  <title>échesscargot</title>
   <meta name="description" content="">
   <meta name="author" content="fenimore love">
 
@@ -94,7 +94,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/json3/3.3.2/json3.min.js"></script>
 		<script src="js/chessboard-0.3.0.js"></script>
-		<script src="js/chess.min.js"></script>
+		<script src="js/chess.js"></script>
 		<link rel="stylesheet" href="css/style.css">
 		<link rel="icon" type="image/png" href="img/favicon.png">
 		<style>
@@ -118,6 +118,12 @@
 		}
 		function copymove(){
 			document.getElementById("pgninput").value = game.pgn();
+		}
+		function gameBack(){
+		  board.position(game.back());
+		}
+		function gameNext() {
+		  board.position(game.next());
 		}
 		</script>
 </head>
@@ -148,6 +154,10 @@
     				<div class="row">
 							<div class="six columns">
 								<div id="board"></div>
+								<div id="gamecontrol">
+								  <button onclick="gameBack()">Avant</button>
+								  <button id="nextbtn" onclick="gameNext()">Suivant</button>
+								</div>
 							</div>
 							<div class="six columns">
 								<span title="Celui-ci contient l'état de l'échiquier"><label>L'échiquier: </label><span id="pgn"></span></span>
