@@ -18,6 +18,7 @@
 ##Planned Features:
 <ul>
   <li>Add game viewer, eg. forward as well as undo button. (this seems somehow possible).</li>
+  <li>htaccess file</li>
   <li>Integrate status (Black/White to Move - this'll be tricky):</li>
     <ul>
       <li>Email move, or ping the next mover.</li>
