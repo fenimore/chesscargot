@@ -104,7 +104,7 @@
 					  <div class="u-full-width">
 						  <button type="submit" class="button-primary create-button">commence</button>
 						  <a class="button create-button" href="index.php">archive</a>
-							<a class="button create-button" href="about.html">apropo</a>
+							<a class="button create-button" href="about.html">À propos</a>
 						</div>
 					</div>
 				</form><!-- form -->

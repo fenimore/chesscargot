@@ -154,7 +154,7 @@
 							<div class="six columns">
 								<div id="board"></div>
 								<div id="gamecontrol">
-								  <button onclick="gameBack()">Avant</button>
+								  <button onclick="gameBack()">Précédent</button>
 								  <button id="nextbtn" onclick="gameNext()">Suivant</button>
 								</div>
 							</div>
@@ -187,7 +187,7 @@
 								</div>
 									<button type="submit" class="button-primary index-button">
 										sauvegarder</button> &nbsp;&nbsp;&nbsp;&nbsp;
-										<span title="| FR | Ce qu’est dans la boîte 'notation PGN' sera ajouter à le base des données. Si tu veux copier automatiquement le changements d'échiquier à les données, clique le bouton ‘Copier’ et puis clique ‘Sauvegarder.’
+										<span title="| FR | Ce qui est dans la boîte 'notation PGN' sera ajouté dans la base des données. Si tu veut copier automatiquement un changement d'échiquier aux données, clique sur ‘Copier’ et puis clique ‘Sauvegarder.’
 
 | EN | The moves inside 'notation PGN' will be added to the database. If you want to automatically copy the changes you’ve made on the board to the input field, click the ‘Copier’ button and then click ‘Sauvegarder’ (save).">Aide | Help</span>
 							</form>

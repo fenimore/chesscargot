@@ -9,11 +9,9 @@
   <!-- Mobile Specific Metas
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- FONT
+  <!-- FONT & CSS
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
-  <!-- CSS
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/skeleton.css">
   <link rel="stylesheet" href="css/style.css">
@@ -40,7 +38,7 @@
 			<div class="row" style="margin-top:2%">
         <p>
 					<a href="create.php" class="button button-primary">nouveau</a>
-          <a href="about.html" class="button">a propos</a>
+          <a href="about.html" class="button">À propos</a>
         </p>
 				<table class="table table-striped table-bordered">
 		              <thead>
@@ -66,7 +64,7 @@
 							   	echo '<a class="button button-primary index-button" href="update.php?id='.$row['id'].'">Charger</a>';
 							   	echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
 								echo '<br><br>';
-							   	echo '<a class="button index-button" href="delete.php?id='.$row['id'].'">supprimer</a>';
+							   	echo '<a class="button index-button" href="delete.php?id='.$row['id'].'">Supprimer</a>';
 							   	echo '</td>';
 							   	echo '</tr>';
 					   }
