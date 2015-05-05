@@ -39,5 +39,3 @@ The required database has 5 columns: id (autoincrement), info, black, white, pgn
 nothing?!
 
 ###Screenshots:
-<img src="http://play.plyp.org/img/db_screen.png" width="400px"></img>
-<img src="http://play.plyp.org/img/play_screen.png" width="400px"></img>
