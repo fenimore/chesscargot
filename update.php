@@ -96,7 +96,6 @@
 		<script src="js/chessboard-0.3.0.js"></script>
 		<script src="js/chess.js"></script>
 		<link rel="stylesheet" href="css/style.css">
-		<link rel="icon" type="image/png" href="img/favicon.png">
 		<style>
 
 		#entry, #pgn {

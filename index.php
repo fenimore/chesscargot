@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>snail chess</title>
-  <meta name="description" content="">
-  <meta name="author" content="fenimore love">
+  <title>Echesscargot</title>
+  <meta name="description" content="Echesscargot,Chess,Fenimore,Plyp,Polypmer">
+  <meta name="author" content="Fenimore Love">
 
   <!-- Mobile Specific Metas
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/skeleton.css">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="icon" type="img/png" href="img/favicon.png">
+  <link rel="icon" type="image/png" href="img/favicon.png">
 
     <style>
       table {font-family:monospace;}
