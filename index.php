@@ -18,7 +18,9 @@
   <link rel="icon" type="image/png" href="img/favicon.png">
 
     <style>
-      table {font-family:monospace;}
+      tbody {font-family:monospace;}
+      /** THis looks silly
+      tbody tr:nth-child(odd) {background: #e8e8e8}*/
     </style>
 </head>
 
