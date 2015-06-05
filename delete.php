@@ -29,7 +29,7 @@
 		<link rel="stylesheet" href="css/normalize.css">
 		<link rel="stylesheet" href="css/skeleton.css">
 		<link rel="stylesheet" href="css/style.css">
-		<link rel="icon" type="img/png" href="images/favicon.png">
+		<link rel="shortcut icon" sizes="16x16 24x24 32x32 48x48 64x64" href="images/favicon.ico">
 
 </head>
 

@@ -65,7 +65,7 @@
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/skeleton.css">
 	<link rel="stylesheet" href="css/style.css">
-  <link rel="icon" type="image/png" href="img/favicon.png">
+  <link rel="shortcut icon" sizes="16x16 24x24 32x32 48x48 64x64" href="img/favicon.ico">
 </head>
 
 <body>
