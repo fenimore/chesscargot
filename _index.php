@@ -54,7 +54,7 @@
           <ul class="nav navbar-nav">
             <li class="active"><a href="#">Accueil</a></li>
             <li><a href="_about.html">À propos</a></li>
-            <li><a href="#contact">Nouveau</a></li>
+            <li><a href="_create.php">Nouveau</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -67,7 +67,7 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-md-10">
+        <div class="col-md-10 col-md-offset-1">
 				<table class="table table-striped table-hover">
 		              <thead>
 		                <tr>
@@ -89,10 +89,10 @@
 							   	echo '<td>'. $row['black'] . '</td>';
                   echo '<td style="font-family:monospace;">'. $row['pgn'] . '</td>';
 							   	echo '<td width=250>';
-							   	echo '<a class="btn btn-primary index-button" href="_update.php?id='.$row['id'].'">Charger</a>';
+							   	echo '<a class="btn btn-primary index-button" href="_update.php?id='.$row['id'].'"><span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span> Charger</a>';
 							   	echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
 								echo '<br><br>';
-							   	echo '<a class="btn btn-default index-button" href="delete.php?id='.$row['id'].'">Supprimer</a>';
+							   	echo '<a class="btn btn-default index-button" href="delete.php?id='.$row['id'].'"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Supprimer</a>';
 							   	echo '</td>';
 							   	echo '</tr>';
 					   }

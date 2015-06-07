@@ -142,7 +142,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Chesscargot</a>
+          <a class="navbar-brand" href="index.php">Chesscargot</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
@@ -157,25 +157,25 @@
 
     <div class="container col-md-offset-1">
 						<div class="row">
-							<div class="col-md-6">
-								<h5><small style="color:#6ab293;"><?php echo !empty($info)?$info:'';?>:&nbsp;</small>
+							<div class="col-md-5">
+								<h4><small style="color:#6ab293;"><?php echo !empty($info)?$info:'';?>:&nbsp;</small>
 									<?php echo !empty($white)?$white:'';?>&nbsp;<small style="color:#6ab293;">contre</small>&nbsp;
-									<?php echo !empty($black)?$black:'';?></h5>
+									<?php echo !empty($black)?$black:'';?></h4>
 							</div>
-							<div class="col-md-6">
-								<h5><span style="color:black" id="status"></span></h5>
+							<div class="col-md-4">
+								<h4><span style="color:black" id="status"></span></h4>
 							</div>
 						</div>
     				<div class="row">
 							<div class="col-md-5">
 								<div id="board"></div>
 								<div id="gamecontrol">
-								  <button onclick="gameBack()">Précédent</button>
-								  <button id="nextbtn" onclick="gameNext()">Suivant</button>
+								  <a class="btn btn-default" onclick="gameBack()"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Précédent</a>
+								  <a id="nextbtn" class="btn btn-default" onclick="gameNext()"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"> Suivant</a>
 								</div>
 							</div>
-							<div class="col-md-6">
-								<span title="Celui-ci contient l'état de l'échiquier"><label>L'échiquier: </label><span id="pgn"></span></span>
+							<div class="col-md-4">
+								<span title="Celui-ci contient l'état de l'échiquier"><label>L'échiquier: <br></label><span id="pgn"></span></span>
 								<form name="chessconsole" action="update.php?id=<?php echo $id?>" method="post">
 								<div style="display:none">
 									<label class="u-full-width">info</label>
@@ -201,16 +201,16 @@
 									<span title="Laissez un commentaire ici."><label>Commentaires</label><br></span>
 											<textarea name="comments" id="commentary" placeholder="comments"><?php echo !empty($comments)?$comments:'';?></textarea>
 								</div>
-									<button type="submit" class="button-primary index-button">
-										sauvegarder</button> &nbsp;&nbsp;&nbsp;&nbsp;
+									<button type="submit" class=" btn btn-primary index-button">
+										<span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Sauvegarder</button> &nbsp;&nbsp;&nbsp;&nbsp;
 										<span title="| FR | Ce qui est dans la boîte 'notation PGN' sera ajouté dans la base des données. Si tu veut copier automatiquement un changement d'échiquier aux données, clique sur ‘Copier’ et puis clique ‘Sauvegarder.’
 
 | EN | The moves inside 'notation PGN' will be added to the database. If you want to automatically copy the changes you’ve made on the board to the input field, click the ‘Copier’ button and then click ‘Sauvegarder’ (save).">Aide | Help</span>
 							</form>
-							<button class="index-button" href="#" onclick="copymove()">
-								copier</button>
-							<button class="index-button" href="#" onclick="undomove()">
-								défaire</button>
+							<a class="btn btn-default index-button" href="#" onclick="copymove()">
+								<span class="glyphicon glyphicon-copy" aria-hidden="true"></span> Copier</a>
+							<a class="btn btn-default index-button" href="#" onclick="undomove()">
+								<span class="glyphicon glyphicon-search" aria-hidden="true"></span> Défaire</a>
 							</div>
 		    		</div>
 						<div class="row"><br><hr>
