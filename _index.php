@@ -64,12 +64,10 @@
       <div class="row">
         <div class="welcome">
           <h1>Chesscargot</h1>
-          Bienvenu a Chesscargot, 
-          <br> For Snail-Paced Games of Chess.
         </div>
       </div>
       <div class="row">
-        <div>
+        <div class="col-md-10">
 				<table class="table table-striped table-hover">
 		              <thead>
 		                <tr>
@@ -91,7 +89,7 @@
 							   	echo '<td>'. $row['black'] . '</td>';
                   echo '<td style="font-family:monospace;">'. $row['pgn'] . '</td>';
 							   	echo '<td width=250>';
-							   	echo '<a class="btn btn-primary index-button" href="update.php?id='.$row['id'].'">Charger</a>';
+							   	echo '<a class="btn btn-primary index-button" href="_update.php?id='.$row['id'].'">Charger</a>';
 							   	echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
 								echo '<br><br>';
 							   	echo '<a class="btn btn-default index-button" href="delete.php?id='.$row['id'].'">Supprimer</a>';
@@ -104,8 +102,9 @@
 	            </table>
         </div>
       </div>
-      <div class=row>
-	    <a href="http://polypmer.org">Fenimore Love</a> | 2015  - <a href="https://github.com/polypmer/chesscargot">code source (GPL)</a>
+      <div class="row text-center">
+<hr>
+	    <a href="http://polypmer.org">Fenimore Love</a> | 2015  - <a href="https://github.com/polypmer/chesscargot">code source (GPL)</a><br><br>
       </div>
     </div><!-- /.container -->
 
