@@ -17,6 +17,7 @@ et <a href="https://github.com/jhlywa/chess.js/">chess.js</a> pour la validation
 </ul>
 ##Planned Features:
 <ul>
+  <li>Flip Board</li>
   <li>Database/user search function instead of just layin' all out like it is.</li>
   <li>htaccess file.</li>
   <li>Integrate status (Black/White to Move - this'll be tricky):</li>
@@ -29,7 +30,7 @@ et <a href="https://github.com/jhlywa/chess.js/">chess.js</a> pour la validation
 <ul>
   <li>PHP</li>
   <li>MySQL</li>
-  <li><a href="https://getskeleton.com">Skeleton css</a> (modified and included)</li>
+  <li><a href="https://getbootstrap.com">Bootstrap</a></li>
   <li> <a href="http://chessboardjs.com/">chessboard.js</a> and <a href="https://github.com/jhlywa/chess.js/">chess.js</a></li>
 </ul>
 ###Database Initialization:

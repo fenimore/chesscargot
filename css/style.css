@@ -1,15 +1,3 @@
-#nav {
-  background:#e8e8e8;
-  color:#6ab293;
-  top: 0px;
-  width:100%
-}
-#splash {
-  width: 61px;
-  height: auto;
-  display:none;
-}
-
 
 hr {
   border-color: #e8e8e8;
@@ -23,35 +11,8 @@ a:hover {
 }
 textarea, input {
   font-family:monospace;
-  width: 318px;
+  width: 100%;
 }
-
-
-
-#board {
-  width: 300px;
-}
-
-.index-nav {
-  text-align: left;
-  vertical-align: middle;
-}
-/* Bigger than Phablet */
-@media (min-width: 550px) {
-  #splash {
-    display: block;
-  }
-  .index-nav {
-    text-align: right;
-  }
-}
-/* Bigger than 930 */
-@media (min-width: 938px) {
-  #board {
-    width: 400px;
-  }
-}
-
 
 /* Button Sizes */
 .create-button {
@@ -66,7 +27,7 @@ textarea, input {
 }
 #gamecontrol {
   padding-top: 3px;
-  width: 396px;
+  width: 458px;
 } 
 #gamecontrol button{
   width: 120px;
@@ -74,4 +35,5 @@ textarea, input {
 }
 #nextbtn {
   float:right;
+  font-family: sans-serif;
 }

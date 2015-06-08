@@ -68,41 +68,42 @@
 		Database::disconnect();
 	}
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="Snail Chess, Chesscargot">
+    <meta name="author" content="Fenimore Love">
+    <link rel="icon" href="img/favicon.ico">
 
-  <meta charset="utf-8">
-  <title>échesscargot</title>
-  <meta name="description" content="">
-  <meta name="author" content="fenimore love">
+    <title>Chesscargot</title>
 
-  <!-- Mobile Specific Metas
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- FONT
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
-  <!-- CSS JS
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/skeleton.css">
-  <link rel="shortcut icon" sizes="16x16 24x24 32x32 48x48 64x64" href="img/favicon.ico">
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet">
 		<link rel="stylesheet" href="css/chessboard-0.3.0.css">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/json3/3.3.2/json3.min.js"></script>
-		<script src="js/chessboard-0.3.0.js"></script>
-		<script src="js/chess.js"></script>
-		<link rel="stylesheet" href="css/style.css">
-		<style>
-
+    <style>
+      body {
+        padding-top: 75px;
+      }
 		#entry, #pgn {
       font-family:monospace;
     }
-
-		</style>
+      .btn-primary {
+        background-color: #6ab293;
+                 border-color: #e8e8e8;
+      }
+      .btn-primary:hover {
+        background-color: #e8e8e8;
+        color: black;
+        border-color: black;
+      }
+    </style>
 		<script>
 		function reset(){
 		  board.start(); game.clear();
@@ -125,41 +126,56 @@
 		  board.position(game.next());
 		}
 		</script>
-</head>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/json3/3.3.2/json3.min.js"></script>
+		<script src="js/chessboard-0.3.0.js"></script>
+		<script src="js/chess.js"></script>
+  </head>
 
-<body>
-	<div class="row" id="nav">
-<div class="container">
-		<div class="u-full-width">
-			<a class="button nav-button" style="margin-top:1%;" onclick="reset()">dégager</a>
-			<a class="button nav-button" style="margin-top:1%" href="create.php">nouveau</a>
-			<a class="button button-primary nav-button" style="color:white;margin-top:1%;" href="index.php">retour</a>
-		</div>
-</div>
-	</div>
+  <body>
 
-    <div class="container">
-    			<div class="u-full-width" style="margin-top:2%;">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"><img width="30px" height="30px" src="img/snail_shell.png"> </a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="index.php">Chesscargot</a></li>
+            <li><a href="about.html">À propos</a></li>
+            <li><a href="create.php">Nouveau</a></li>
+            <li><a onclick="reset()">Dégager</a></li>			
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container col-md-offset-1">
 						<div class="row">
-							<div class="six columns">
-								<h5><small style="color:#6ab293;"><?php echo !empty($info)?$info:'';?>:&nbsp;</small>
+							<div class="col-md-5">
+								<h4><small style="color:#6ab293;"><?php echo !empty($info)?$info:'';?>:&nbsp;</small>
 									<?php echo !empty($white)?$white:'';?>&nbsp;<small style="color:#6ab293;">contre</small>&nbsp;
-									<?php echo !empty($black)?$black:'';?></h5>
+									<?php echo !empty($black)?$black:'';?></h4>
 							</div>
-							<div class="six columns">
-								<h5><span style="color:black" id="status"></span></h5>
+							<div class="col-md-4">
+								<h4><span style="color:black" id="status"></span></h4>
 							</div>
 						</div>
     				<div class="row">
-							<div class="six columns">
+							<div class="col-md-5">
 								<div id="board"></div>
 								<div id="gamecontrol">
-								  <button onclick="gameBack()">Précédent</button>
-								  <button id="nextbtn" onclick="gameNext()">Suivant</button>
+								  <a class="btn btn-default" onclick="gameBack()"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Précédent</a>
+								  <a id="nextbtn" class="btn btn-default" onclick="gameNext()"> Suivant <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></a>
 								</div>
 							</div>
-							<div class="six columns">
-								<span title="Celui-ci contient l'état de l'échiquier"><label>L'échiquier: </label><span id="pgn"></span></span>
+							<div class="col-md-4">
+								<span title="Celui-ci contient l'état de l'échiquier"><label>L'échiquier:</label><br><span id="pgn"></span></span>
 								<form name="chessconsole" action="update.php?id=<?php echo $id?>" method="post">
 								<div style="display:none">
 									<label class="u-full-width">info</label>
@@ -184,17 +200,18 @@
 											<textarea name="pgn" id="pgninput" placeholder="pgn"><?php echo !empty($pgn)?$pgn:'';?></textarea>
 									<span title="Laissez un commentaire ici."><label>Commentaires</label><br></span>
 											<textarea name="comments" id="commentary" placeholder="comments"><?php echo !empty($comments)?$comments:'';?></textarea>
-								</div>
-									<button type="submit" class="button-primary index-button">
-										sauvegarder</button> &nbsp;&nbsp;&nbsp;&nbsp;
+								</div><br>
+									<button type="submit" class=" btn btn-primary index-button">
+										<span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Sauvegarder</button> &nbsp;&nbsp;&nbsp;&nbsp;
 										<span title="| FR | Ce qui est dans la boîte 'notation PGN' sera ajouté dans la base des données. Si tu veut copier automatiquement un changement d'échiquier aux données, clique sur ‘Copier’ et puis clique ‘Sauvegarder.’
 
 | EN | The moves inside 'notation PGN' will be added to the database. If you want to automatically copy the changes you’ve made on the board to the input field, click the ‘Copier’ button and then click ‘Sauvegarder’ (save).">Aide | Help</span>
 							</form>
-							<button class="index-button" href="#" onclick="copymove()">
-								copier</button>
-							<button class="index-button" href="#" onclick="undomove()">
-								défaire</button>
+<hr>
+							<a class="btn btn-default index-button" href="#" onclick="copymove()">
+								<span class="glyphicon glyphicon-copy" aria-hidden="true"></span> Copier</a>
+							<a class="btn btn-default index-button" href="#" onclick="undomove()">
+								<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Défaire</a>
 							</div>
 		    		</div>
 						<div class="row"><br><hr>
@@ -202,10 +219,13 @@
 					        <span id="fen"></span>
 					  </div>
 					</div>
-			</div>
+    </div><!-- /.container -->
 
-    </div>
-
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
 		<script language="javascript" type="text/javascript">
 		    var board,
 		      game = new Chess(),
@@ -283,3 +303,4 @@
 		  </script>
   </body>
 </html>
+
