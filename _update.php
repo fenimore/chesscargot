@@ -142,11 +142,11 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.php">Chesscargot</a>
+          <a class="navbar-brand" href="#"><img width="30px" height="30px" src="img/snail_shell.png"> </a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li><a href="_index.php">Accueil</a></li>
+            <li><a href="_index.php">Chesscargot</a></li>
             <li><a href="_about.html">À propos</a></li>
             <li><a href="_create.php">Nouveau</a></li>
             <li><a onclick="reset()">Dégager</a></li>			
@@ -175,7 +175,7 @@
 								</div>
 							</div>
 							<div class="col-md-4">
-								<span title="Celui-ci contient l'état de l'échiquier"><label>L'échiquier: <br></label><span id="pgn"></span></span>
+								<span title="Celui-ci contient l'état de l'échiquier"><label>L'échiquier:</label><br><span id="pgn"></span></span>
 								<form name="chessconsole" action="update.php?id=<?php echo $id?>" method="post">
 								<div style="display:none">
 									<label class="u-full-width">info</label>
@@ -200,17 +200,18 @@
 											<textarea name="pgn" id="pgninput" placeholder="pgn"><?php echo !empty($pgn)?$pgn:'';?></textarea>
 									<span title="Laissez un commentaire ici."><label>Commentaires</label><br></span>
 											<textarea name="comments" id="commentary" placeholder="comments"><?php echo !empty($comments)?$comments:'';?></textarea>
-								</div>
+								</div><br>
 									<button type="submit" class=" btn btn-primary index-button">
 										<span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Sauvegarder</button> &nbsp;&nbsp;&nbsp;&nbsp;
 										<span title="| FR | Ce qui est dans la boîte 'notation PGN' sera ajouté dans la base des données. Si tu veut copier automatiquement un changement d'échiquier aux données, clique sur ‘Copier’ et puis clique ‘Sauvegarder.’
 
 | EN | The moves inside 'notation PGN' will be added to the database. If you want to automatically copy the changes you’ve made on the board to the input field, click the ‘Copier’ button and then click ‘Sauvegarder’ (save).">Aide | Help</span>
 							</form>
+<hr>
 							<a class="btn btn-default index-button" href="#" onclick="copymove()">
 								<span class="glyphicon glyphicon-copy" aria-hidden="true"></span> Copier</a>
 							<a class="btn btn-default index-button" href="#" onclick="undomove()">
-								<span class="glyphicon glyphicon-search" aria-hidden="true"></span> Défaire</a>
+								<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Défaire</a>
 							</div>
 		    		</div>
 						<div class="row"><br><hr>

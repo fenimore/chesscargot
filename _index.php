@@ -48,11 +48,11 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Chesscargot</a>
+          <a class="navbar-brand" href="#"><img width="30px" height="30px" src="img/snail_shell.png"></a>
         </div>
-        <div id="navbar" class="collapse navbar-collapse">
+        <div id="navbar" class="collapse navbar-collapse text-center">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Accueil</a></li>
+            <li class="active"><a href="#">Chesscargot</a></li>
             <li><a href="_about.html">À propos</a></li>
             <li><a href="_create.php">Nouveau</a></li>
           </ul>
