@@ -1,0 +1,44 @@
+#board {
+
+}
+
+
+
+hr {
+  border-color: #e8e8e8;
+}
+
+a{
+  color:#6ab293;
+}
+a:hover {
+  color:green;
+}
+textarea, input {
+  font-family:monospace;
+  width: 100%;
+}
+
+/* Button Sizes */
+.create-button {
+  width: 150px;
+}
+
+.index-button {
+  width:130px;
+}
+.nav-button {
+  width:120px;
+}
+#gamecontrol {
+  padding-top: 3px;
+  width: 458px;
+} 
+#gamecontrol button{
+  width: 120px;
+  
+}
+#nextbtn {
+  float:right;
+  font-family: sans-serif;
+}

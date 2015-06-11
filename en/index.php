@@ -53,8 +53,8 @@
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav nav-tabs">
             <li class="active"><a href="#">Archive</a></li>
-            <li><a href="about.php">À Propos</a></li>
-            <li><a href="create.php">Nouveau</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="create.php">New</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -72,9 +72,9 @@
 		              <thead>
 		                <tr>
 		                  <th>info</th>
-		                  <th>blanc</th>
-		                  <th>noir</th>
-		                  <th>notation pgn</th>
+		                  <th>white</th>
+		                  <th>black</th>
+		                  <th>pgn history</th>
 		                </tr>
 		              </thead>
 		              <tbody>
@@ -89,10 +89,10 @@
 							   	echo '<td>'. $row['black'] . '</td>';
                   echo '<td style="font-family:monospace;">'. $row['pgn'] . '</td>';
 							   	echo '<td width=250>';
-							   	echo '<a class="btn btn-primary index-button" href="update.php?id='.$row['id'].'"><span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span> Charger</a>';
+							   	echo '<a class="btn btn-primary index-button" href="update.php?id='.$row['id'].'"><span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span> Load</a>';
 							   	echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
 								echo '<br><br>';
-							   	echo '<a class="btn btn-default index-button" href="delete.php?id='.$row['id'].'"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Supprimer</a>';
+							   	echo '<a class="btn btn-default index-button" href="delete.php?id='.$row['id'].'"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete</a>';
 							   	echo '</td>';
 							   	echo '</tr>';
 					   }
@@ -104,7 +104,7 @@
       </div>
       <div class="row text-center">
 <hr>
-	    <a href="http://polypmer.org">Fenimore Love</a> | 2015  - <a href="https://github.com/polypmer/chesscargot">code source (GPL)</a><br><br>
+	    <a href="http://polypmer.org">Fenimore Love</a> | 2015  - <a href="https://github.com/polypmer/chesscargot">source code (GPL)</a><br><br>
       </div>
     </div><!-- /.container -->
 

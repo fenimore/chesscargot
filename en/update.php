@@ -150,9 +150,9 @@
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav nav-tabs">
             <li><a href="index.php">Archive</a></li>
-            <li><a href="about.php">À Propos</a></li>
-            <li><a href="create.php">Nouveau</a></li>
-            <li><a href="#" onclick="reset()">Dégager</a></li>			
+            <li><a href="about.php">About</a></li>
+            <li><a href="create.php">New</a></li>
+            <li><a href="#" onclick="reset()">Clear</a></li>			
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -174,13 +174,13 @@
 								<div id="board" class="img-responsive"></div>
 								<div id="gamecontrol">
 								  <a class="btn btn-default" onclick="gameBack()"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Précédent</a>
-								  <a id="nextbtn" class="btn btn-default" onclick="gameNext()"> Suivant <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></a>
+								  <a id="nextbtn" class="btn btn-default" onclick="gameNext()"> Next <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></a>
 								  <br>
 								  <a class="btn btn-info" onclick="flipboard()" style="display:none;"><span class="glyphicon glyphicon-refresh" aria-hidden="true">Renverser</a>
 								</div>
 							</div>
 							<div class="col-md-4">
-								<span title="Celui-ci contient l'état de l'échiquier"><label>L'échiquier:</label><br><span id="pgn"></span></span>
+								<span title="Celui-ci contient l'état de l'échiquier"><label>Chessboard:</label><br><span id="pgn"></span></span>
 								<form name="chessconsole" action="update.php?id=<?php echo $id?>" method="post">
 								<div style="display:none">
 									<label class="u-full-width">info</label>
@@ -189,38 +189,38 @@
 									</div>
 								</div>
 								<div style="display:none" class="u-full-width <?php echo !empty($whiteError)?'error':'';?>">
-									<label class="u-full-width">blanc</label>
+									<label class="u-full-width">white</label>
 									<div>
-											<input name="white" type="text" placeholder="nom de blanch" value="<?php echo !empty($white)?$white:'';?>">
+											<input name="white" type="text" placeholder="nom de whiteh" value="<?php echo !empty($white)?$white:'';?>">
 									</div>
 								</div>
 								<div style="display:none" class="u-full-width <?php echo !empty($blackError)?'error':'';?>">
-									<label class="u-full-width">noir</label>
+									<label class="u-full-width">black</label>
 									<div>
-											<input name="black" type="text"  placeholder="nom de noir" value="<?php echo !empty($black)?$black:'';?>">
+											<input name="black" type="text"  placeholder="nom de black" value="<?php echo !empty($black)?$black:'';?>">
 									</div>
 								</div>
 								<div class="u-full-width">
-									<span title="Celui-ci contient l'état de le base des données."><label>Notation pgn</label><br></span>
+									<span title="Celui-ci contient l'état de le base des données."><label>PGN history</label><br></span>
 											<textarea name="pgn" id="pgninput" placeholder="pgn"><?php echo !empty($pgn)?$pgn:'';?></textarea>
-									<span title="Laissez un commentaire ici."><label>Commentaires</label><br></span>
+									<span title="Laissez un commentaire ici."><label>Comments</label><br></span>
 											<textarea name="comments" id="commentary" placeholder="comments"><?php echo !empty($comments)?$comments:'';?></textarea>
 								</div><br>
 									<button type="submit" class=" btn btn-primary index-button">
-										<span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Sauvegarder</button> &nbsp;&nbsp;&nbsp;&nbsp;
+										<span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Save</button> &nbsp;&nbsp;&nbsp;&nbsp;
 										<span title="| FR | Ce qui est dans la boîte 'notation PGN' sera ajouté dans la base des données. Si tu veut copier automatiquement un changement d'échiquier aux données, clique sur ‘Copier’ et puis clique ‘Sauvegarder.’
 
 | EN | The moves inside 'notation PGN' will be added to the database. If you want to automatically copy the changes you’ve made on the board to the input field, click the ‘Copier’ button and then click ‘Sauvegarder’ (save).">Aide | Help</span>
 							</form>
 <hr>
 							<a class="btn btn-default index-button" href="#" onclick="copymove()">
-								<span class="glyphicon glyphicon-copy" aria-hidden="true"></span> Copier</a>
+								<span class="glyphicon glyphicon-copy" aria-hidden="true"></span> Copy</a>
 							<a class="btn btn-default index-button" href="#" onclick="undomove()">
-								<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Défaire</a>
+								<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Undo</a>
 							</div>
 		    		</div>
 						<div class="row"><br><hr>
-							<div style="font-size:9px"><label>position de FEN:</label>
+							<div style="font-size:9px"><label>FEN position:</label>
 					        <span id="fen"></span>
 					  </div>
 					</div>
@@ -275,15 +275,15 @@
 		    }
 		    var updateStatus = function() {
 		      var status = '';
-		      var moveColor = 'Blanc';
+		      var moveColor = 'White';
 		      if (game.turn() === 'b') {
-		        moveColor = 'Noir';
+		        moveColor = 'Black';
 		        // This isn't a great place to flip the board
 		        //board.flip();
 		      }
 		      // checkmate?
 		      if (game.in_checkmate() === true) {
-		        status = 'Échec et mat, ' + moveColor + ' perd';
+		        status = 'Checkmate, ' + moveColor + ' loses';
 		      }
 		      // draw?
 		      else if (game.in_draw() === true) {
@@ -291,7 +291,7 @@
 		      }
 		      // game still on
 		      else {
-		        status = moveColor + ' à couper';
+		        status = moveColor + ' to move';
 		        // check?
 		        if (game.in_check() === true) {
 		          status += ', ' + moveColor + ' en échec';

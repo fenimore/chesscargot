@@ -101,8 +101,8 @@
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav nav-tabs">
             <li><a href="index.php">Archive</a></li>
-            <li><a href="about.php">À Propos</a></li>
-            <li class="active"><a href="#">Nouveau</a></li>
+            <li><a href="about.php">About</a></li>
+            <li class="active"><a href="create.php">New</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -110,7 +110,7 @@
 
     <div class="container col-md-offset-1">
     			<div class="row">
-		    			<h3>Créer</h3>
+		    			<h3>New Game</h3>
 		    	</div>
 	    	<form action="create.php" method="post">
 					<div class="row">
@@ -121,9 +121,9 @@
 					</div>
 					<div class="row">
 						<div class="col-md-3">
-					    <label>blanc</label>
+					    <label>white</label>
 					    <div>
-					      	<input name="white" type="text" class="create-button" placeholder="nom de blanc" value="<?php echo !empty($white)?$white:'';?>">
+					      	<input name="white" type="text" class="create-button" placeholder="name of white" value="<?php echo !empty($white)?$white:'';?>">
 					    </div>
 						</div>
           </div>
@@ -131,25 +131,25 @@
 						<div class="col-md-3">
 					    <label>noir</label><br>
 					    <div>
-					      	<input name="black" class="create-button" type="text" placeholder="nom de noir" value="<?php echo !empty($black)?$black:'';?>">
+					      	<input name="black" class="create-button" type="text" placeholder="name of black" value="<?php echo !empty($black)?$black:'';?>">
 					    </div><hr>
 						</div>
 					</div>
 					<div class="row">
 							<div class="col-md-3">
                   <label>notation pgn</label><br>
-									<input name="pgn" type="text"  class="create-button" placeholder="coup d'ouverture" value="<?php echo !empty($pgn)?$pgn:'';?>">
+									<input name="pgn" type="text"  class="create-button" placeholder="opening move" value="<?php echo !empty($pgn)?$pgn:'';?>">
 							</div>
 					</div>
 					<div class="row">
 					  <div class="col-md-3">
-						  <button type="submit" class="btn btn-primary create-button">commence</button>
+						  <button type="submit" class="btn btn-primary create-button">submit</button>
 						</div>
 					</div>
 				</form><!-- form -->
 	  <div class="row text-center">
 <hr>
-	    <a href="http://polypmer.org">Fenimore Love</a> | 2015  - <a href="https://github.com/polypmer/chesscargot">code source (GPL)</a><br><br>
+	    <a href="http://polypmer.org">Fenimore Love</a> | 2015  - <a href="https://github.com/polypmer/chesscargot">source code(GPL)</a><br><br>
       </div>
     </div><!-- /.container -->
 

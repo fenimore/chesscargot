@@ -1,5 +1,11 @@
-Options -MultiViews
 RewriteEngine On
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /.*index\ HTTP/
+RewriteRule ^(.*)index$ http://play.plyp.org/$1 [L,R=301]
+
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^([^\.]+)$ $1.php [NC,L]
+RewriteRule ^([^/]+)/$ http://play.plyp.org/$1 [L,R=301]
+
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /(.+)\.php\ HTTP/
+RewriteRule ^(.+)\.php$ http://play.plyp.org/$1 [L,R=301]
+RewriteRule ^([a-z]+)$ /$1.php [L]
+

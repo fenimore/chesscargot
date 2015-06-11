@@ -52,7 +52,7 @@
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav nav-tabs">
             <li><a href="index.php">Archive</a></li>
-            <li  class="active"><a href="#about">À propos</a></li>
+            <li  class="active"><a href="#about">À Propos</a></li>
             <li><a href="create.php">Nouveau</a></li>
           </ul>
         </div><!--/.nav-collapse -->
@@ -114,6 +114,10 @@
 
   </div>
 </div>
+	  <div class="row text-center">
+<hr>
+	    <a href="http://polypmer.org">Fenimore Love</a> | 2015  - <a href="https://github.com/polypmer/chesscargot">code source (GPL)</a><br><br>
+      </div>
     </div><!-- /.container -->
 
 
