@@ -13,11 +13,11 @@ et <a href="https://github.com/jhlywa/chess.js/">chess.js</a> pour la validation
   <li>Undo button.</li>
   <li>Back/Next buttons for viewing the history of a game.</li>
   <li>Comments section.</li>
-  <li>Mostly mobile-friendly.</li>
+  <li>Mobile-friendly.</li>
 </ul>
 ##Planned Features:
 <ul>
-  <li>Flip Board</li>
+  <li>Put Board thumbnail </li>
   <li>Database/user search function instead of just layin' all out like it is.</li>
   <li>htaccess file.</li>
   <li>Integrate status (Black/White to Move - this'll be tricky):</li>
