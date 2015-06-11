@@ -109,6 +109,9 @@
 		  board.start(); game.clear();
 		  game = new Chess();
 		  updateStatus();}
+		function flipboard() {
+		  board.flip();
+		}
 		function undomove(){
 		  game.undo();
 		  updateStatus();
@@ -145,11 +148,11 @@
           <a class="navbar-brand" href="#"><img width="30px" height="30px" src="img/snail_shell.png"> </a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li><a href="index.php">Chesscargot</a></li>
+          <ul class="nav navbar-nav nav-tabs">
+            <li><a href="index.php">Archive</a></li>
             <li><a href="about.html">À propos</a></li>
             <li><a href="create.php">Nouveau</a></li>
-            <li><a onclick="reset()">Dégager</a></li>			
+            <li><a href="#" onclick="reset()">Dégager</a></li>			
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -168,10 +171,12 @@
 						</div>
     				<div class="row">
 							<div class="col-md-5">
-								<div id="board"></div>
+								<div id="board" class="img-responsive"></div>
 								<div id="gamecontrol">
 								  <a class="btn btn-default" onclick="gameBack()"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Précédent</a>
 								  <a id="nextbtn" class="btn btn-default" onclick="gameNext()"> Suivant <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></a>
+								  <br>
+								  <a class="btn btn-info" onclick="flipboard()" style="display:none;"><span class="glyphicon glyphicon-refresh" aria-hidden="true">Renverser</a>
 								</div>
 							</div>
 							<div class="col-md-4">
@@ -260,11 +265,21 @@
 		    var onSnapEnd = function() {
 		      board.position(game.fen());
 		    };
+		    
+		    // set board position on load
+		    var setBoardOrientation = function() {
+		      if (game.turn() === 'b') {
+		        board.flip();
+		        //this should only happen once
+		      }
+		    }
 		    var updateStatus = function() {
 		      var status = '';
 		      var moveColor = 'Blanc';
 		      if (game.turn() === 'b') {
 		        moveColor = 'Noir';
+		        // This isn't a great place to flip the board
+		        //board.flip();
 		      }
 		      // checkmate?
 		      if (game.in_checkmate() === true) {
@@ -299,6 +314,7 @@
 				game.load_pgn(thisGame);
 				board.position(game.fen());
 		    updateStatus();
+		    setBoardOrientation();
 		//chessboard example
 		  </script>
   </body>

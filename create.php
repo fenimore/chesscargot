@@ -99,8 +99,8 @@
           <a class="navbar-brand" href="#"><img width="30px" height="30px" src="img/snail_shell.png"></a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li><a href="index.php">Chesscargot</a></li>
+          <ul class="nav navbar-nav nav-tabs">
+            <li><a href="index.php">Archive</a></li>
             <li><a href="about.html">À propos</a></li>
             <li class="active"><a href="#">Nouveau</a></li>
           </ul>
