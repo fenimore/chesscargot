@@ -8,12 +8,14 @@
 		$whiteError = null;
 		$blackError = null;
 		$pgnError = null;
+		$commentsError = null;
 
 		// keep track post values
 		$info = $_POST['info'];
 		$white = $_POST['white'];
 		$black = $_POST['black'];
 		$pgn = $_POST['pgn'];
+		$comments = $_POST['comments'];
 
 		// validate input
 		$valid = true;
@@ -36,9 +38,9 @@
 		if ($valid) {
 			$pdo = Database::connect();
 			$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-			$sql = "INSERT INTO chessgames (info,white,black,pgn) values(?, ?, ?, ?)";
+			$sql = "INSERT INTO chessgames (info,white,black,pgn,comments) values(?, ?, ?, ?, ?)";
 			$q = $pdo->prepare($sql);
-			$q->execute(array($info,$white,$black,$pgn));
+			$q->execute(array($info,$white,$bla/create.phpck,$pgn,$comments));
 			Database::disconnect();
 			header("Location: index.php");
 		}
@@ -139,6 +141,12 @@
 							<div class="col-md-3">
                   <label>notation pgn</label><br>
 									<input name="pgn" type="text"  class="create-button" placeholder="coup d'ouverture" value="<?php echo !empty($pgn)?$pgn:'';?>">
+							</div>
+					</div>
+				    <div class="row" style="display:none">
+							<div class="col-md-3">
+                  <label>comments</label><br>
+									<input name="comments" type="text"  class="create-button" placeholder="comments" value="<?php echo !empty($comments)?$comments:'';?>">
 							</div>
 					</div>
 					<div class="row">

@@ -213,9 +213,9 @@
 | EN | The moves inside 'notation PGN' will be added to the database. If you want to automatically copy the changes you’ve made on the board to the input field, click the ‘Copier’ button and then click ‘Sauvegarder’ (save).">Aide | Help</span>
 							</form>
 <hr>
-							<a class="btn btn-default index-button" href="#" onclick="copymove()">
+							<a class="btn btn-default index-button" onclick="copymove()">
 								<span class="glyphicon glyphicon-copy" aria-hidden="true"></span> Copier</a>
-							<a class="btn btn-default index-button" href="#" onclick="undomove()">
+							<a class="btn btn-default index-button" onclick="undomove()">
 								<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Défaire</a>
 							</div>
 		    		</div>
