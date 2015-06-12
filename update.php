@@ -220,7 +220,7 @@
 							</div>
 		    		</div>
 						<div class="row"><br><hr>
-							<div style="font-size:9px"><label>position de FEN:</label>
+							<div class="text-center" style="font-size:9px"><label>position de FEN:</label>
 					        <span id="fen"></span>
 					  </div>
 					</div>

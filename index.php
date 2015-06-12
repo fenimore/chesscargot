@@ -10,7 +10,7 @@
     <link rel="icon" href="img/favicon.ico">
 
     <title>Chesscargot</title>
-
+    
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
@@ -56,6 +56,12 @@
             <li><a href="about.php">À Propos</a></li>
             <li><a href="create.php">Nouveau</a></li>
           </ul>
+          <form class="navbar-form navbar-left" role="search">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="cherch est sous construction">
+            </div>
+            <button type="submit" class="btn btn-default">Chercher</button>
+          </form>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
@@ -104,7 +110,7 @@
       </div>
       <div class="row text-center">
 <hr>
-	    <a href="http://polypmer.org">Fenimore Love</a> | 2015  - <a href="https://github.com/polypmer/chesscargot">code source (GPL)</a><br><br>
+	    <a href="http://another.workingagenda.com">Fenimore Love</a> | 2015  - <a href="https://github.com/polypmer/chesscargot">code source (GPL)</a><br><br>
       </div>
     </div><!-- /.container -->
 
