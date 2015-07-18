@@ -40,7 +40,7 @@
 			$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			$sql = "INSERT INTO chessgames (info,white,black,pgn,comments) values(?, ?, ?, ?, ?)";
 			$q = $pdo->prepare($sql);
-			$q->execute(array($info,$white,$bla/create.phpck,$pgn,$comments));
+			$q->execute(array($info,$white,$black,$pgn,$comments));
 			Database::disconnect();
 			header("Location: index.php");
 		}
@@ -101,7 +101,7 @@
           <a class="navbar-brand" href="#"><img width="30px" height="30px" src="img/snail_shell.png"></a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav nav-tabs">
+          <ul class="nav navbar-nav nav-pills">
             <li><a href="index.php">Archive</a></li>
             <li><a href="about.php">À Propos</a></li>
             <li class="active"><a href="#">Nouveau</a></li>

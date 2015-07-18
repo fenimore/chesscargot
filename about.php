@@ -50,7 +50,7 @@
           <a class="navbar-brand" href="#"><img width="30px" height="30px" src="img/snail_shell.png"></a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav nav-tabs">
+          <ul class="nav navbar-nav nav-pills">
             <li><a href="index.php">Archive</a></li>
             <li  class="active"><a href="#about">À Propos</a></li>
             <li><a href="create.php">Nouveau</a></li>

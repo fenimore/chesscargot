@@ -51,12 +51,12 @@
           <a class="navbar-brand" href="#"><img width="30px" height="30px" src="img/snail_shell.png"></a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav nav-tabs">
+          <ul class="nav navbar-nav nav-pills">
             <li class="active"><a href="#">Archive</a></li>
             <li><a href="about.php">À Propos</a></li>
             <li><a href="create.php">Nouveau</a></li>
           </ul>
-          <form class="navbar-form navbar-left" role="search">
+          <form class="navbar-form navbar-left" style="display:none;" role="search">
             <div class="form-group">
               <input type="text" class="form-control" placeholder="cherch est sous construction">
             </div>
