@@ -111,7 +111,7 @@
       </div>
     </nav>
 
-    <div class="container col-md-offset-1">
+    <div class="container">
     			<div class="row">
 		    			<h2 style="padding-left:15px;">Créer</h2>
 		    	</div>

@@ -113,7 +113,7 @@
       <a id="apropos"></a>
       <hr width="100%">
       <div class="row">
-        <div class="col-md-5">
+        <div class="col-md-4">
           <h2>A Propos</h2>        
           <p>Celui-ci est une base de données qui peut être utilisé par n’importe qui. C'est pour des jeux lents, comme des escargots, et des jeux privés. Le logiciel d'échecs utilise deux bibliothèques très raffinés: <a href="http://chessboardjs.com/">chessboard.js</a> pour l'échiquier et <a href="https://github.com/jhlywa/chess.js/">chess.js</a>
              pour la validation des coups.
@@ -123,21 +123,23 @@
         </div>
         <div class="col-md-5">
           <h3>Comment Jouer</h3>
-          <p>Pour lancer un défi, sélectionnez ‘Nouveau’ dans l'archive. Puis remplissez les champs: info, nom de blanc, nom de noir, et le notation PGN. Cette dernière option est comment faire l’ouverture. Par exemple: <code>1. e4</code>.
+          <p>Pour lancer un défi, sélectionnez ‘Nouveau’. Puis remplissez les champs: info, nom de blanc, nom de noir, et le notation PGN. Cette dernière option est comment faire l’ouverture. <br>Par exemple: <code>1. e4</code>.
           </p>
+          <br><div class=text-center><a class="btn btn-lg btn-primary" href="create.php">Lancez un defi</a></div>
         </div>
       </div>
       <div class="row"style="margin-bottom:10%">
-        <div class="col-md-5">
-          <img style="width:50%;height:auto;margin-left:10%"  src="img/play.png" />
-          <br> <a class="btn btn-lg btn-primary" href="create.php">Lancez un defi</a>
+        <div class="col-md-4">
+          <img style="width:50%;height:auto;margin-left:15%"  src="img/play.png" />
+          <br>
+          <h4>PGN?</h4>
+          <p>PGN (Portable Game Notation) est une notation algébrique qui est facile à lire ou écrire (pour humaines, pas comme <a href="http://en.wikipedia.org/wiki/Forsyth%E2%80%93Edwards_Notation"> notation FEN</a>). <a href="http://www.iechecs.com/notation.htm#intro">Cliquez ici</a> pour une introduction, <span style="color:red"> or <a href="http://www6.chessclub.com/help/PGN-spec">here</a> for English.</span>
+          </p>
         </div>
         <div class="col-md-5">
-        <h3>Notation PGN</h3>
-          <p><a href="http://www.iechecs.com/notation.htm#intro">Cliquez ici</a>
-            pour une introduction, <span style=”color:red”> or <a href=”http://google.com”>here</a> for English.</span> PGN est une notation algébrique qui est facile à lire ou écrire (pour humaines, pas comme <a href="http://en.wikipedia.org/wiki/Forsyth%E2%80%93Edwards_Notation"> notation FEN</a>).
-          </p>
-          <p>C'est comme ça que ce programme marche. Il va lire les coups dans la boîte “notation PGN.” Quand tu veux faire un coup (ou ajouter le coup dans la base de données), tapez-le dans la boîte de saisie, la boîte qui montre les mouvements précédents.
+          <h3>Notation PGN</h3>
+          <p>Pour PGN, chaque coup est representé avec des lettres et chiffres. Ce applis utilise le notation Anglais; ça veux dire que K=roi, Q=dame, B=fou, N=cavalier, et R=tour (aucun lettre majuscule indique le pion). De l'échiquier, les axes du bas sont alphabétiques, les axes côtés sont numériques. Chaque coup est composé d'un mouvement blanc et noir (en ce ordre). Finalement, il y a quelques autres notations, comme 'x' (qui veux dire, prendre) et '+' (qui veux dire, échec).<b> Au fait, il ne faut pas que vous connaissiez comment lire PGN pour jouer avec ce applis.</b></p>
+          <p>Mais, c'est comme ça que ce programme marche. Il lis les coups dans la boîte “notation PGN.” <b>Quand vous voulez faire un coup (ou ajouter un coup dans la base de données), tapez-le dans la boîte de saisie, qui montre les mouvements précédents. Pour se dépêcher, faisez votre coup sur l'échiquier, cliquez 'Copier', et puis 'Sauvegarder.'</b>
           </p>
         </div>
       </div>
