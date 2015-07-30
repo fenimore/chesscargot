@@ -49,7 +49,7 @@
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -75,15 +75,7 @@
         padding: 40px 15px;
         text-align: center;
       }
-      .btn-primary {
-        background-color: #6ab293;
-                 border-color: #e8e8e8;
-      }
-      .btn-primary:hover {
-        background-color: #e8e8e8;
-        color: black;
-        border-color: black;
-      }
+
     </style>
 
   </head>

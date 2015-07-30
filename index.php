@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -26,15 +26,7 @@
         padding: 40px 15px;
         text-align: center;
       }
-      .btn-primary {
-        background-color: #6ab293;
-                 border-color: #e8e8e8;
-      }
-      .btn-primary:hover {
-        background-color: #e8e8e8;
-        color: black;
-        border-color: black;
-      }
+
     </style>
 
   </head>
@@ -79,10 +71,10 @@
  <table class="tabletable-hover">
 		                <thead>
 		                  <tr>
-		                    <th style="width:80px">info</th>
-		                    <th style="width:80px;padding-left:10px;">blanc</th>
-		                    <th style="width:80px;padding-left:10px;">noir</th>
-		                    <th style="width:350px;padding-left:10px;">notation pgn</th>
+		                    <th style="width:200px">info</th>
+		                    <th style="width:80px;">blanc</th>
+		                    <th style="width:80px;">noir</th>
+		                    <th style="width:350px;padding-left:20px;">notation pgn</th>
 		                  </tr>
 		                </thead>
 		                <tbody>

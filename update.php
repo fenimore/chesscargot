@@ -92,15 +92,6 @@
 		#entry, #pgn {
       font-family:monospace;
     }
-      .btn-primary {
-        background-color: #6ab293;
-                 border-color: #e8e8e8;
-      }
-      .btn-primary:hover {
-        background-color: #e8e8e8;
-        color: black;
-        border-color: black;
-      }
     </style>
 		<script>
 		function reset(){
