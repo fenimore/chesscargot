@@ -69,7 +69,7 @@
   </div>
 
 </div>
-<div class="row">
+<div class="row"><hr>
   <div class="col-md-4 col-md-offset-1">
 <div class="panel panel-default">
   <div class="panel-body">

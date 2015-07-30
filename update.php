@@ -87,6 +87,7 @@
     <!-- Custom styles for this template -->
     <link href="css/style.css" rel="stylesheet">
 		<link rel="stylesheet" href="css/chessboard-0.3.0.css">
+		    <link href='http://fonts.googleapis.com/css?family=Poiret+One|Quicksand&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <style>
 		#entry, #pgn {
       font-family:monospace;
@@ -147,7 +148,7 @@
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav nav-pills">
             <li><a href="index.php">Archive</a></li>
-            <li><a href="about.php">À Propos</a></li>
+            <li><a href="index.php#apropos">À Propos</a></li>
             <li><a href="create.php">Nouveau</a></li>
             <li><a href="#" onclick="reset()">Dégager</a></li>			
           </ul>
@@ -199,9 +200,9 @@
 								</div>
 								<div class="u-full-width">
 									<span title="Celui-ci contient l'état de le base des données."><label>Notation pgn</label><br></span>
-											<textarea name="pgn" id="pgninput" placeholder="pgn"><?php echo !empty($pgn)?$pgn:'';?></textarea>
+											<textarea name="pgn" class="form-control" id="pgninput" placeholder="pgn"><?php echo !empty($pgn)?$pgn:'';?></textarea>
 									<span title="Laissez un commentaire ici."><label>Commentaires</label><br></span>
-											<textarea name="comments" id="commentary" placeholder="comments"><?php echo !empty($comments)?$comments:'';?></textarea>
+											<textarea name="comments" class="form-control" id="commentary" placeholder="comments"><?php echo !empty($comments)?$comments:'';?></textarea>
 								</div><br>
 									<button type="submit" class=" btn btn-primary index-button">
 										<span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Sauvegarder</button> &nbsp;&nbsp;&nbsp;&nbsp;

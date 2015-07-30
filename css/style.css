@@ -1,4 +1,12 @@
-
+body {
+    
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poiret One', sans-serif;
+}
+p, div {
+    font-family: 'Quicksand', sans-serif;;
+}
 hr {
   border-color: #e8e8e8;
 }
@@ -15,12 +23,13 @@ textarea, input {
 }
 
 /* Button Sizes */
-.create-button {
-  width: 150px;
-}
 
+btn {
+  font-family: 'Poiret One';
+}
 .index-button {
   width:130px;
+  margin-right:15px;
 }
 .nav-button {
   width:120px;
@@ -35,5 +44,6 @@ textarea, input {
 }
 #nextbtn {
   float:right;
-  font-family: sans-serif;
 }
+
+

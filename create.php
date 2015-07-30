@@ -65,6 +65,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
+    <link href='http://fonts.googleapis.com/css?family=Poiret+One|Quicksand&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <link href="css/style.css" rel="stylesheet">
     <style>
       body {
@@ -103,7 +104,7 @@
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav nav-pills">
             <li><a href="index.php">Archive</a></li>
-            <li><a href="about.php">À Propos</a></li>
+            <li><a href="index.php#apropos">À Propos</a></li>
             <li class="active"><a href="#">Nouveau</a></li>
           </ul>
         </div><!--/.nav-collapse -->
@@ -112,46 +113,36 @@
 
     <div class="container col-md-offset-1">
     			<div class="row">
-		    			<h3>Créer</h3>
+		    			<h2 style="padding-left:15px;">Créer</h2>
 		    	</div>
 	    	<form action="create.php" method="post">
 					<div class="row">
 					    <div class="col-md-3">
-					    <label>info</label><br>
-					      	<input name="info" type="text"  class="create-button" placeholder="info" value="<?php echo !empty($info)?$info:'';?>">
-					    </div>
-					</div>
-					<div class="row">
-						<div class="col-md-3">
-					    <label>blanc</label>
-					    <div>
-					      	<input name="white" type="text" class="create-button" placeholder="nom de blanc" value="<?php echo !empty($white)?$white:'';?>">
-					    </div>
-						</div>
-          </div>
-          <div class="row">
-						<div class="col-md-3">
-					    <label>noir</label><br>
-					    <div>
-					      	<input name="black" class="create-button" type="text" placeholder="nom de noir" value="<?php echo !empty($black)?$black:'';?>">
-					    </div><hr>
-						</div>
-					</div>
-					<div class="row">
-							<div class="col-md-3">
-                  <label>notation pgn</label><br>
-									<input name="pgn" type="text"  class="create-button" placeholder="coup d'ouverture" value="<?php echo !empty($pgn)?$pgn:'';?>">
+					      <label class="text-uppercas">info</label><br>
+					      	<input name="info" type="text"  class="form-control" placeholder="info" value="<?php echo !empty($info)?$info:'';?>">
+                <label class="text-uppercas">notation pgn</label><br>
+									<input name="pgn" type="text"  class=" form-control" placeholder="coup d'ouverture (ou vide)" value="<?php echo !empty($pgn)?$pgn:'';?>">
 							</div>
-					</div>
-				    <div class="row" style="display:none">
-							<div class="col-md-3">
-                  <label>comments</label><br>
-									<input name="comments" type="text"  class="create-button" placeholder="comments" value="<?php echo !empty($comments)?$comments:'';?>">
-							</div>
+						  <div class="col-md-3">
+					      <label class="text-uppercas">blanc</label><br>
+					        	<input name="white" type="text" class="form-control" placeholder="nom de blanc" value="<?php echo !empty($white)?$white:'';?>">
+					      <label class="text-uppercas">noir</label><br>
+					        	<input name="black" class=" form-control" type="text" placeholder="nom de noir" value="<?php echo !empty($black)?$black:'';?>">
+                  <div style="display:none">
+                    <label>comments</label><br>
+									  <input name="comments" type="text" placeholder="comments" value="<?php echo !empty($comments)?$comments:'';?>">
+							    </div>
+						  </div>
 					</div>
 					<div class="row">
-					  <div class="col-md-3">
-						  <button type="submit" class="btn btn-primary create-button">commence</button>
+
+					</div>
+					<div class="row">
+					</div>
+
+					<div class="row">
+					  <div class="col-md-3"><br>
+						  <button type="submit" class="btn btn-lg btn-primary">Commence</button>
 						</div>
 					</div>
 				</form><!-- form -->
