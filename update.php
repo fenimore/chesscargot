@@ -17,6 +17,7 @@
 		$whiteError = null;
 		$blackError = null;
 		$pgnError = null;
+		$fenError = null;
 		$commentsError = null;
 
 		// keep track post values
@@ -24,6 +25,7 @@
 		$white = $_POST['white'];
 		$black = $_POST['black'];
 		$pgn = $_POST['pgn'];
+		$fen = $_POST['fen'];
 		$comments = $_POST['comments'];
 
 		// validate input
@@ -47,9 +49,9 @@
 		if ($valid) {
 			$pdo = Database::connect();
 			$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-			$sql = "UPDATE chessgames  set info = ?, white = ?, black =?, pgn =?, comments =? WHERE id = ?";
+			$sql = "UPDATE chessgames  set info = ?, white = ?, black =?, pgn =?, fen =?, comments =? WHERE id = ?";
 			$q = $pdo->prepare($sql);
-			$q->execute(array($info,$white,$black,$pgn, $comments, $id));
+			$q->execute(array($info,$white,$black,$pgn, $fen, $comments, $id));
 			Database::disconnect();
 			header("Location: index.php"); //change to update.php OR should I??????
 		}
@@ -64,6 +66,7 @@
 		$white = $data['white'];
 		$black = $data['black'];
 		$pgn = $data['pgn'];
+		$fen = $data['fen'];
 		$comments = $data['comments'];
 		Database::disconnect();
 	}
@@ -87,7 +90,7 @@
     <!-- Custom styles for this template -->
     <link href="css/style.css" rel="stylesheet">
 		<link rel="stylesheet" href="css/chessboard-0.3.0.css">
-		    <link href='http://fonts.googleapis.com/css?family=Poiret+One|Quicksand&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Poiret+One|Quicksand&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <style>
 		#entry, #pgn {
       font-family:monospace;
@@ -110,6 +113,7 @@
 		}
 		function copymove(){
 			document.getElementById("pgninput").value = game.pgn();
+			document.getElementById("feninput").value = game.fen();
 		}
 		function gameBack(){
 		  board.position(game.back());
@@ -192,6 +196,8 @@
 								<div class="u-full-width">
 									<span title="Celui-ci contient l'état de le base des données."><label>Notation pgn</label><br></span>
 											<textarea name="pgn" class="form-control" id="pgninput" placeholder="pgn"><?php echo !empty($pgn)?$pgn:'';?></textarea>
+									<span style="display:none" title="Celui-ci contient position FEN."><label>Notation fen</label><br></span>
+											<textarea style="display:none" name="fen" class="form-control" id="feninput" placeholder="fen"><?php echo !empty($fen)?$fen:'';?></textarea>
 									<span title="Laissez un commentaire ici."><label>Commentaires</label><br></span>
 											<textarea name="comments" class="form-control" id="commentary" placeholder="comments"><?php echo !empty($comments)?$comments:'';?></textarea>
 								</div><br>

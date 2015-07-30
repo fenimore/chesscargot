@@ -16,6 +16,7 @@
     <!-- Font Awesome core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="css/chessboard-0.3.0.css">
     <link href="css/style.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Poiret+One|Quicksand&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <style>
@@ -28,6 +29,13 @@
       }
 
     </style>
+        <!-- Javascript
+    ================================================== -->
+    <!-- Placed at the start of the document for the chessboard generation -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+		<script src="js/chessboard-0.3.0.js"></script>
+		<script src="js/chess.js"></script>
 
   </head>
 
@@ -74,25 +82,35 @@
 		                    <th style="width:200px">info</th>
 		                    <th style="width:80px;">blanc</th>
 		                    <th style="width:80px;">noir</th>
-		                    <th style="width:350px;padding-left:20px;">notation pgn</th>
+		                    <th style="width:350px;padding-left:20px;" class="hidden-xs">notation pgn</th>
 		                  </tr>
 		                </thead>
 		                <tbody>
 		                <?php
 					     include 'database.php';
 					     $pdo = Database::connect();
-					     $sql = 'SELECT * FROM chessgames ORDER BY id DESC';
+					     $sql = 'SELECT * FROM chessgames ORDER BY id ASC';
 	   				   foreach ($pdo->query($sql) as $row) {
 						     		echo '<tr>';
 							     	echo '<td>'. $row['info'] . '</td>';
-							     	echo '<td>'. $row['white'] . '</td>';
-							     	echo '<td>'. $row['black'] . '</td>';
-                                    echo '<td style="font-family:monospace;padding:20px;">'. $row['pgn'] . '</td>';
+							     	echo '<td><div id="player'.$row['white'].'-'.$row['id'].'">'. $row['white'] . '</div></td>';
+							     	echo '<td><div id="player'.$row['black'].'-'.$row['id'].'">'. $row['black'] . '</div></td>';
+                    echo '<td style="font-family:monospace;padding:20px;" class="hidden-xs">'. $row['pgn'] . '</td>';
 							     	echo '<td>';
 							     	echo '<a class="btn btn-primary index-button" href="update.php?id='.$row['id'].'" style="margin-top:15%"><span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span> Charger</a>';
 							     	echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
-								  echo '<br>';
+								    echo '<br>';
 							     	echo '<a class="btn btn-default index-button" href="delete.php?id='.$row['id'].'" style="margin-top:5%"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Supprimer</a>';
+							     	echo '</td>';
+							     	echo '<td>';
+							     	echo '<div id=board'.$row['id'] .' style="width:170px;padding:5px;"> </div>';
+                    echo '<script>';
+                    echo 'var position = "'.$row['fen'].'";';
+                    echo 'var board'.$row['id'].' = ChessBoard("board'.$row['id'].'",{position: position,  showNotation: false });';
+                    echo 'var chess = new Chess("'.$row['fen'].'");';
+                    echo 'if (chess.turn() === "b") {board'.$row['id'].'.flip();document.getElementById("player'.$row['black'].'-'.$row['id'].'").style.color = "red";document.getElementById("player'.$row['black'].'-'.$row['id'].'").style.fontWeight = "bolder";document.getElementById("player'.$row['black'].'-'.$row['id'].'").style.textTransform = "uppercase";};';
+                    echo 'if (chess.turn() === "w") {document.getElementById("player'.$row['white'].'-'.$row['id'].'").style.color = "red";document.getElementById("player'.$row['white'].'-'.$row['id'].'").style.fontWeight = "bolder";document.getElementById("player'.$row['white'].'-'.$row['id'].'").style.textTransform = "uppercase";};';
+                    echo '</script>';
 							     	echo '</td>';
 							     	echo '</tr>';
 					     }
@@ -140,14 +158,9 @@
 	    <a href="http://another.workingagenda.com">Fenimore Love</a> | 2015  - <a href="https://github.com/polypmer/chesscargot">code source (GPL)</a><br><br>
       </div>
     </div><!-- /.container -->
+    <script>
 
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-
+    </script>
   </body>
 </html>
 

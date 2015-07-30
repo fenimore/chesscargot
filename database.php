@@ -1,10 +1,10 @@
 <?php
 class Database
 {
-	private static $dbName = 'matches' ;
-	private static $dbHost = 'localhost' ;
-	private static $dbUsername = 'chess_admin';
-	private static $dbUserPassword = 'password';
+	private static $dbName = 'database' ;
+	private static $dbHost = 'server' ;
+	private static $dbUsername = 'admin';
+	private static $dbUserPassword = 'woops';
 
 	private static $cont  = null;
 

@@ -17,14 +17,10 @@ et <a href="https://github.com/jhlywa/chess.js/">chess.js</a> pour la validation
 </ul>
 ##Planned Features:
 <ul>
-  <li>Put Board thumbnail </li>
   <li>Database/user search function instead of just layin' all out like it is.</li>
-  <li>htaccess file.</li>
-  <li>Integrate status (Black/White to Move - this'll be tricky):</li>
-    <ul>
-      <li>Email move, or ping the next mover.</li>
-      <li>Highlight the player whose turn it is in the database table.</li>
-    </ul>
+  <li>htaccess file. </li>
+  <li>Email, ping players?</li>
+
 </ul>
 ###Dependencies:
 <ul>
@@ -37,7 +33,7 @@ et <a href="https://github.com/jhlywa/chess.js/">chess.js</a> pour la validation
 The required database has 5 columns: id (autoincrement), info, black, white, pgn, comments. These last two are type longtext. All columns are not-null & utf8. In order to set up a chesscargot instance, fill out the localhost/database/username information in the database.php file and create a database with the appropriate tables.
 
 ###Broken:
-nothing?!
+Screenshots are out of date! Too lazy!
 
 ###Screenshots:
 <img src="http://play.plyp.org/img/db_screen.png" width="400px"></img>
