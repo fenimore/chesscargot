@@ -82,7 +82,7 @@
     <meta name="author" content="Fenimore Love">
     <link rel="icon" href="img/favicon.ico">
 
-    <title>Chesscargot</title>
+    <title>Chesscargot - Jouer</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -312,6 +312,8 @@
 		    updateStatus();
 		    setBoardOrientation();
 		//chessboard example
+		    var textarea = document.getElementById('commentary');
+        textarea.scrollTop = textarea.scrollHeight;
 		  </script>
   </body>
 </html>

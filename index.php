@@ -9,7 +9,7 @@
     <meta name="author" content="Fenimore Love">
     <link rel="icon" href="img/favicon.ico">
 
-    <title>Chesscargot</title>
+    <title>Eschescargo</title>
     
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -27,6 +27,7 @@
         padding: 40px 15px;
         text-align: center;
       }
+      .section-examples h4 {font-family:sans-serif;}
 
     </style>
         <!-- Javascript
@@ -54,9 +55,9 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav nav-pills">
-            <li class="active"><a href="#">Archive</a></li>
+            <li><a href="#recent">Archive</a></li>
             <li><a href="#apropos"></i>À Propos</a></li>
-            <li><a href="create.php">Nouveau</a></li>
+            <li><a href="#lancer">Nouveau</a></li>
           </ul>
           <form class="navbar-form navbar-left" style="display:none;" role="search">
             <div class="form-group">
@@ -70,7 +71,7 @@
     <!-- jumbotron -->
     <div class="jumbotron">
       <div class="container">
-          <h1>Chesscargot</h1>
+          <h1 style="color:#6ab293">Echescargot</h1>
         </div>
     </div>      
     <div class="container">        
@@ -108,15 +109,15 @@
                     echo 'var position = "'.$row['fen'].'";';
                     echo 'var board'.$row['id'].' = ChessBoard("board'.$row['id'].'",{position: position,  showNotation: false });';
                     echo 'var chess = new Chess("'.$row['fen'].'");';
-                    echo 'if (chess.turn() === "b") {board'.$row['id'].'.flip();document.getElementById("player'.$row['black'].'-'.$row['id'].'").style.color = "red";document.getElementById("player'.$row['black'].'-'.$row['id'].'").style.fontWeight = "bolder";document.getElementById("player'.$row['black'].'-'.$row['id'].'").style.textTransform = "uppercase";};';
-                    echo 'if (chess.turn() === "w") {document.getElementById("player'.$row['white'].'-'.$row['id'].'").style.color = "red";document.getElementById("player'.$row['white'].'-'.$row['id'].'").style.fontWeight = "bolder";document.getElementById("player'.$row['white'].'-'.$row['id'].'").style.textTransform = "uppercase";};';
+                    echo 'if (chess.turn() === "b") {board'.$row['id'].'.flip();document.getElementById("player'.$row['black'].'-'.$row['id'].'").style.color = "#B0464C";document.getElementById("player'.$row['black'].'-'.$row['id'].'").style.fontWeight = "bolder";document.getElementById("player'.$row['black'].'-'.$row['id'].'").style.textTransform = "uppercase";};';
+                    echo 'if (chess.turn() === "w") {document.getElementById("player'.$row['white'].'-'.$row['id'].'").style.color = "#B0464C";document.getElementById("player'.$row['white'].'-'.$row['id'].'").style.fontWeight = "bolder";document.getElementById("player'.$row['white'].'-'.$row['id'].'").style.textTransform = "uppercase";};';
                     echo '</script>';
 							     	echo '</td>';
 							     	echo '</tr>';
 					     }
 					     Database::disconnect();
 					    ?>
-				        </tbody>
+				        </tbody><a id="recent"></a>
 	              </table>
         </div>
       </div>
@@ -135,7 +136,7 @@
           <h3>Comment Jouer</h3>
           <p>Pour lancer un défi, sélectionnez ‘Nouveau’. Puis remplissez les champs: info, nom de blanc, nom de noir, et le notation PGN. Cette dernière option est comment faire l’ouverture. <br>Par exemple: <code>1. e4</code>.
           </p>
-          <br><div class=text-center><a class="btn btn-lg btn-primary" href="create.php">Lancez un defi</a></div>
+          <br><div class=text-center><a class="btn btn-lg btn-primary" href="#lancer">Lancez un defi</a></div>
         </div>
       </div>
       <div class="row"style="margin-bottom:10%">
@@ -143,7 +144,7 @@
           <img style="width:50%;height:auto;margin-left:15%"  src="img/play.png" />
           <br>
           <h4>PGN?</h4>
-          <p>PGN (Portable Game Notation) est une notation algébrique qui est facile à lire ou écrire (pour humaines, pas comme <a href="http://en.wikipedia.org/wiki/Forsyth%E2%80%93Edwards_Notation"> notation FEN</a>). <a href="http://www.iechecs.com/notation.htm#intro">Cliquez ici</a> pour une introduction, <span style="color:red"> or <a href="http://www6.chessclub.com/help/PGN-spec">here</a> for English.</span>
+          <p>PGN (Portable Game Notation) est une notation algébrique qui est facile à lire ou écrire (pour humaines, pas comme <a href="http://en.wikipedia.org/wiki/Forsyth%E2%80%93Edwards_Notation"> notation FEN</a>). <a href="http://www.iechecs.com/notation.htm#intro">Cliquez ici</a> pour une introduction, <span style="color:#B0464C"> or <a href="http://www6.chessclub.com/help/PGN-spec">here</a> for English.</span>
           </p>
         </div>
         <div class="col-md-5">
@@ -153,13 +154,72 @@
           </p>
         </div>
       </div>
+    	<div class="row"><a id="lancer"></a>
+		    	<h2 style="padding-left:15px;">Créer</h2>
+		    	<h3 style="padding-left:15px;">coupes d'ouverture:</h3>
+		  </div>
+			  <div class="row section-examples">
+					  <div class="col-md-3 text-center">
+					  <div id="boarde4" style="width: 200px; float: left; margin-right: 10px"></div><br>
+					  <h4>1. e4</h4>
+						</div>
+					  <div class="col-md-3 text-center">
+            <div id="boardd4" style="width: 200px; float: left; margin-right: 10px"></div><br>
+					    <h4>1. d4</h4>
+						</div>
+					  <div class="col-md-3 text-center">
+            <div id="boardNf3" style="width: 200px; float: left"></div><br>
+					    <h4>1. Nf3</h4>
+						</div>
+				</div>				
+				<hr>
+	    	<form action="create.php" method="post">
+			<div class="row" style="margin-top:10px">
+					    <div class="col-md-3">
+					      <label class="text-uppercas">info</label><br>
+					      	<input name="info" type="text"  class="form-control" placeholder="info" value="<?php echo !empty($info)?$info:'';?>">
+                <label class="text-uppercas">notation pgn</label><br>
+									<input name="pgn" type="text"  class=" form-control" placeholder="coup d'ouverture (ou vide)" value="<?php echo !empty($pgn)?$pgn:'';?>">
+							</div>
+						  <div class="col-md-3">
+					      <label class="text-uppercas">blanc</label><br>
+					        	<input name="white" type="text" class="form-control" placeholder="nom de blanc" value="<?php echo !empty($white)?$white:'';?>">
+					      <label class="text-uppercas">noir</label><br>
+					        	<input name="black" class=" form-control" type="text" placeholder="nom de noir" value="<?php echo !empty($black)?$black:'';?>">
+                  <div style="display:none">
+                    <label>comments</label><br>
+									  <input name="comments" type="text" placeholder="comments" value="<?php echo !empty($comments)?$comments:'';?>">
+							    </div>
+						  </div>
+					    <div class="col-md-3"><br>
+						    <button type="submit" class="btn btn-lg btn-primary">Commence</button>
+						  </div>
+				</div>
+			</form><!-- form -->
       <div class="row text-center">
 <hr>
 	    <a href="http://another.workingagenda.com">Fenimore Love</a> | 2015  - <a href="https://github.com/polypmer/chesscargot">code source (GPL)</a><br><br>
       </div>
     </div><!-- /.container -->
     <script>
+    //var board-e4 = ChessBoard("board-e4",{position: "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1",  showNotation: true });
+    //var board-d4 = ChessBoard("board-d4",{position: "rnbqkbnr/pppppppp/8/8/3P4/8/PPP1PPPP/RNBQKBNR b KQkq d3 0 1",  showNotation: true });
+    //var board-Nf3 = ChessBoard("board-Nf3",{position: "rnbqkbnr/pppppppp/8/8/8/5N2/PPPPPPPP/RNBQKB1R b KQkq - 1 1",  showNotation: true });
+    
+var boarde4 = ChessBoard('boarde4', {
+  position: 'rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1',
+  showNotation: true
+});
 
+var boardd4 = ChessBoard('boardd4', {
+  position: 'rnbqkbnr/pppppppp/8/8/3P4/8/PPP1PPPP/RNBQKBNR b KQkq d3 0 1',
+  showNotation: false
+});
+
+var boardNf3 = ChessBoard('boardNf3', {
+  position: 'rnbqkbnr/pppppppp/8/8/8/5N2/PPPPPPPP/RNBQKB1R b KQkq - 1 1',
+  showNotation: false
+});
     </script>
   </body>
 </html>

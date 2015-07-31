@@ -33,7 +33,6 @@
 			$blackError = 'who is black?';
 			$valid = false;
 		}
-
 		// insert data
 		if ($valid) {
 			$pdo = Database::connect();
@@ -42,12 +41,10 @@
 			$q = $pdo->prepare($sql);
 			$q->execute(array($info,$white,$black,$pgn,$comments));
 			Database::disconnect();
-			header("Location: index.php");
+			header("Location:index.php#recent");
 		}
 	}
 ?>
-
-
 <!DOCTYPE html>
 <html lang="fr">
   <head>
@@ -59,97 +56,21 @@
     <meta name="author" content="Fenimore Love">
     <link rel="icon" href="img/favicon.ico">
 
-    <title>Chesscargot</title>
-
+    <title>Chesscargot - Nouveau</title>
+    
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-
+    <!-- Font Awesome core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <!-- Custom styles for this template -->
-    <link href='http://fonts.googleapis.com/css?family=Poiret+One|Quicksand&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/chessboard-0.3.0.css">
     <link href="css/style.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Poiret+One|Quicksand&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <style>
-      body {
-        padding-top: 50px;
-      }
-      .welcome {
-        padding: 40px 15px;
-        text-align: center;
-      }
-
     </style>
-
   </head>
-
-  <body>
-
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#"><img width="30px" height="30px" src="img/snail_shell.png"></a>
-        </div>
-        <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav nav-pills">
-            <li><a href="index.php">Archive</a></li>
-            <li><a href="index.php#apropos">À Propos</a></li>
-            <li class="active"><a href="#">Nouveau</a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </nav>
-
-    <div class="container">
-    			<div class="row">
-		    			<h2 style="padding-left:15px;">Créer</h2>
-		    	</div>
-	    	<form action="create.php" method="post">
-					<div class="row">
-					    <div class="col-md-3">
-					      <label class="text-uppercas">info</label><br>
-					      	<input name="info" type="text"  class="form-control" placeholder="info" value="<?php echo !empty($info)?$info:'';?>">
-                <label class="text-uppercas">notation pgn</label><br>
-									<input name="pgn" type="text"  class=" form-control" placeholder="coup d'ouverture (ou vide)" value="<?php echo !empty($pgn)?$pgn:'';?>">
-							</div>
-						  <div class="col-md-3">
-					      <label class="text-uppercas">blanc</label><br>
-					        	<input name="white" type="text" class="form-control" placeholder="nom de blanc" value="<?php echo !empty($white)?$white:'';?>">
-					      <label class="text-uppercas">noir</label><br>
-					        	<input name="black" class=" form-control" type="text" placeholder="nom de noir" value="<?php echo !empty($black)?$black:'';?>">
-                  <div style="display:none">
-                    <label>comments</label><br>
-									  <input name="comments" type="text" placeholder="comments" value="<?php echo !empty($comments)?$comments:'';?>">
-							    </div>
-						  </div>
-					</div>
-					<div class="row">
-
-					</div>
-					<div class="row">
-					</div>
-
-					<div class="row">
-					  <div class="col-md-3"><br>
-						  <button type="submit" class="btn btn-lg btn-primary">Commence</button>
-						</div>
-					</div>
-				</form><!-- form -->
-	  <div class="row text-center">
-<hr>
-	    <a href="http://polypmer.org">Fenimore Love</a> | 2015  - <a href="https://github.com/polypmer/chesscargot">code source (GPL)</a><br><br>
-      </div>
-    </div><!-- /.container -->
-
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-  </body>
+  <body><div class=text-center>
+Woops. Il faut que vous remplissez les champs 'info', 'blanc', et 'noir' avant continuer.<br>
+<a href="index.php#lancer">Retour</a></div></body>
 </html>
 
