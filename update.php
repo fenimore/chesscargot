@@ -7,10 +7,6 @@
 		$id = $_REQUEST['id'];
 	}
 
-	if ( null==$id ) {
-		header("Location: index.php");
-	}
-
 	if ( !empty($_POST)) {
 		// keep track validation errors
 		$infoError = null;
@@ -144,7 +140,7 @@
           <ul class="nav navbar-nav nav-pills">
             <li><a href="index.php">Archive</a></li>
             <li><a href="index.php#apropos">À Propos</a></li>
-            <li><a href="create.php">Nouveau</a></li>
+            <li><a href="index.php#lancer">Nouveau</a></li>
             <li><a href="#" onclick="reset()">Dégager</a></li>			
           </ul>
         </div><!--/.nav-collapse -->
@@ -214,6 +210,22 @@
 								<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Défaire</a>
 							</div>
 		    		</div>
+		    		
+		    		<div class="row text-center"><br><br>
+		      		<div class="col-md-10">  
+		      		 <form name="ping" action="ping.php" class="form-inline" method="post">
+									  <div class="form-group">
+									    <label style="display:none">email: </label>
+										  <input name="email" type="text" placeholder="email" class="form-control">
+									  </div>
+										<textarea name="history" style="display:none;" class="form-control" id="history" placeholder="history"><?php echo !empty($pgn)?$pgn:'';?></textarea>
+										<label style="display:none">id</label>
+                    <input type="hidden" name="number" value="<?php echo $id;?>"/>
+									  <button type="submit" class=" btn btn-default"><span class="glyphicon glyphicon-send" aria-hidden="true"></span> Ping</button>
+							  </form>
+							</div>
+		    		</div>
+		    		
 						<div class="row"><br><hr>
 							<div class="text-center" ><label>position de FEN:</label>
 					        <span id="fen" style="font-size:9px"></span><br>
@@ -313,6 +325,8 @@
 		    setBoardOrientation();
 		//chessboard example
 		    var textarea = document.getElementById('commentary');
+        textarea.scrollTop = textarea.scrollHeight;
+        var textarea = document.getElementById('pgninput');
         textarea.scrollTop = textarea.scrollHeight;
 		  </script>
   </body>

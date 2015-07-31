@@ -1,25 +1,25 @@
 <?php
-	require 'database.php';
-	$id = 0;
+//sending email with the php mail()
+$email = $_POST['email'];
+$email = preg_replace("([\r\n])", "", $email);
 
-	if ( !empty($_GET['id'])) {
-		$id = $_REQUEST['id'];
-	}
+$history = $_POST['history'];
+$history = preg_replace("([\r\n])", "", $history);
 
-	if ( !empty($_POST)) {
-		// keep track post values
-		$id = $_POST['id'];
+$id = $_POST['number'];
+$id = preg_replace("([\r\n])", "", $id);
 
-		// delete data
-		$pdo = Database::connect();
-		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		$sql = "DELETE FhiddenROM chessgames  WHERE id = ?";
-		$q = $pdo->prepare($sql);
-		$q->execute(array($id));
-		Database::disconnect();
-		header("Location: index.php");
+// compose headers
+$headers = "From: ping@play.plyp.org\r\n";
+$headers .= "Reply-To: webmaster@example.com\r\n";
+$headers .= "X-Mailer: PHP/".phpversion();
 
-	}
+$message = "It's your move.\n\n";
+$message .= "The game history is: \n" . $history;
+$message .= "\n\nSee: http://play.plyp.org/update.php?id=". $id;
+$message .= "\n\n~Echescargot";
+
+mail($email, 'Your move', $message, $headers);
 ?>
 
 <!DOCTYPE html>
@@ -96,15 +96,10 @@
     <div class="container">
     			<div>
     				<div class="row text-center" style="margin-top:5%;">
-		    			<h3 style="margin-top:50px;">Supprimer ce jeu?</h3>
-		    		</div><br>
-	    			<form class="text-center form-horizontal" action="delete.php" method="post">
-	    			  <input type="hidden" name="id" value="<?php echo $id;?>"/>
-					  <div class="form-actions">
-						  <button type="submit" class="btn btn-danger" style="padding:20px;">Oui</button>
-						  <a class="btn btn-primary btn-lg" style="padding:20px;" href="index.php">Non</a>
-						</div>
-					</form>
+		    			<h3 style="margin-top:50px;">Your nemesis has been pinged</h3>
+		    			<br>
+		    			<a class="btn btn-primary btn-lg" href="update.php?id=<?php echo $id;?>">Retour</a>
+		    		</div>
 				</div>
 
     </div> <!-- /container -->

@@ -14,13 +14,13 @@ et <a href="https://github.com/jhlywa/chess.js/">chess.js</a> pour la validation
   <li>Back/Next buttons for viewing the history of a game.</li>
   <li>Comments section.</li>
   <li>Mobile-friendly.</li>
+  <li>Ping/email players.</li>
+  <li>Pretty/simple to use (I think?)</li>
 </ul>
 ##Planned Features:
 <ul>
   <li>Database/user search function instead of just layin' all out like it is.</li>
   <li>htaccess file. </li>
-  <li>Email, ping players?</li>
-
 </ul>
 ###Dependencies:
 <ul>

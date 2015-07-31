@@ -156,7 +156,7 @@
       </div>
     	<div class="row"><a id="lancer"></a>
 		    	<h2 style="padding-left:15px;">Créer</h2>
-		    	<h3 style="padding-left:15px;">coupes d'ouverture:</h3>
+		    	<h3 style="padding-left:15px;">Quelques ouvertures:</h3>
 		  </div>
 			  <div class="row section-examples">
 					  <div class="col-md-3 text-center">
@@ -205,7 +205,6 @@
     //var board-e4 = ChessBoard("board-e4",{position: "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1",  showNotation: true });
     //var board-d4 = ChessBoard("board-d4",{position: "rnbqkbnr/pppppppp/8/8/3P4/8/PPP1PPPP/RNBQKBNR b KQkq d3 0 1",  showNotation: true });
     //var board-Nf3 = ChessBoard("board-Nf3",{position: "rnbqkbnr/pppppppp/8/8/8/5N2/PPPPPPPP/RNBQKB1R b KQkq - 1 1",  showNotation: true });
-    
 var boarde4 = ChessBoard('boarde4', {
   position: 'rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1',
   showNotation: true
@@ -213,12 +212,12 @@ var boarde4 = ChessBoard('boarde4', {
 
 var boardd4 = ChessBoard('boardd4', {
   position: 'rnbqkbnr/pppppppp/8/8/3P4/8/PPP1PPPP/RNBQKBNR b KQkq d3 0 1',
-  showNotation: false
+  showNotation: true
 });
 
 var boardNf3 = ChessBoard('boardNf3', {
   position: 'rnbqkbnr/pppppppp/8/8/8/5N2/PPPPPPPP/RNBQKB1R b KQkq - 1 1',
-  showNotation: false
+  showNotation: true
 });
     </script>
   </body>
