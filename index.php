@@ -9,7 +9,7 @@
     <meta name="author" content="Fenimore Love">
     <link rel="icon" href="img/favicon.ico">
 
-    <title>Eschescargo</title>
+    <title>Eschescargot</title>
     
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -126,7 +126,7 @@
       <div class="row">
         <div class="col-md-4">
           <h2>A Propos</h2>        
-          <p>Celui-ci est une base de données qui peut être utilisé par n’importe qui. C'est pour des jeux lents, comme des escargots, et des jeux privés. Le logiciel d'échecs utilise deux bibliothèques très raffinés: <a href="http://chessboardjs.com/">chessboard.js</a> pour l'échiquier et <a href="https://github.com/jhlywa/chess.js/">chess.js</a>
+          <p>Celui-ci est une base de données qui peut être utilisée par n’importe qui. C'est pour des jeux lents, comme des escargots, et des jeux privés. Le logiciel d'échecs utilise deux bibliothèques très raffinés: <a href="http://chessboardjs.com/">chessboard.js</a> pour l'échiquier et <a href="https://github.com/jhlywa/chess.js/">chess.js</a>
              pour la validation des coups.
              </p>
             <p>Le code source est <a href="https://github.com/polypmer/chesscargot">ici</a>.
@@ -149,8 +149,8 @@
         </div>
         <div class="col-md-5">
           <h3>Notation PGN</h3>
-          <p>Pour PGN, chaque coup est representé avec des lettres et chiffres. Ce applis utilise le notation Anglais; ça veux dire que K=roi, Q=dame, B=fou, N=cavalier, et R=tour (aucun lettre majuscule indique le pion). De l'échiquier, les axes du bas sont alphabétiques, les axes côtés sont numériques. Chaque coup est composé d'un mouvement blanc et noir (en ce ordre). Finalement, il y a quelques autres notations, comme 'x' (qui veux dire, prendre) et '+' (qui veux dire, échec).<b> Au fait, il ne faut pas que vous connaissiez comment lire PGN pour jouer avec ce applis.</b></p>
-          <p>Mais, c'est comme ça que ce programme marche. Il lis les coups dans la boîte “notation PGN.” <b>Quand vous voulez faire un coup (ou ajouter un coup dans la base de données), tapez-le dans la boîte de saisie, qui montre les mouvements précédents. Pour se dépêcher, faisez votre coup sur l'échiquier, cliquez 'Copier', et puis 'Sauvegarder.'</b>
+          <p>Pour PGN, chaque coup est representé avec des lettres et chiffres. Ce applis utilise la notation Anglais; ça veut dire que K=roi, Q=dame, B=fou, N=cavalier, et R=tour (aucun lettre majuscule indique le pion). De l'échiquier, les axes du bas sont alphabétiques, les axes côtés sont numériques. Chaque coup est composé d'un mouvement blanc et noir (en ce ordre). Finalement, il y a quelques autres notations, comme 'x' (qui veut dire, prendre) et '+' (qui veut dire, échec).<b> Au fait, il ne faut pas que vous connaissiez comment lire PGN pour jouer avec ce applis.</b></p>
+          <p>Mais, c'est comme ça que ce programme marche. Il lit les coups dans la boîte “notation PGN.” <b>Quand vous voulez faire un coup (ou ajouter un coup dans la base de données), tapez-le dans la boîte de saisie, qui montre les mouvements précédents. Pour se dépêcher, faitez votre coup sur l'échiquier, cliquez 'Copier', et puis 'Sauvegarder.'</b>
           </p>
         </div>
       </div>

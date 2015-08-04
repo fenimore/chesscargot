@@ -1,4 +1,4 @@
-# Snail Chess | Echesscargot
+# Snail Chess | Echescargot
 <img src="https://github.com/polypmer/chesscargot/blob/master/img/play.png?raw=true" width="150px"></img>
 <p>| FR | Celui-ci est une base de données qui peut être utilisé par n’importe
  qui. C'est pour des jeux lents, comme des escargots, et des jeux privés. 
@@ -15,12 +15,12 @@ et <a href="https://github.com/jhlywa/chess.js/">chess.js</a> pour la validation
   <li>Comments section.</li>
   <li>Mobile-friendly.</li>
   <li>Ping/email players.</li>
-  <li>Pretty/simple to use (I think?)</li>
 </ul>
 ##Planned Features:
 <ul>
   <li>Database/user search function instead of just layin' all out like it is.</li>
   <li>htaccess file. </li>
+  <li>Passwords. </li>
 </ul>
 ###Dependencies:
 <ul>
