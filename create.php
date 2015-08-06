@@ -16,7 +16,11 @@
 		$black = $_POST['black'];
 		$pgn = $_POST['pgn'];
 		$comments = $_POST['comments'];
-
+		$mydate = getdate();
+    $date = $mydate[year] . '.' . $mydate[mon] . '.' .  $mydate[mday] ;
+    $fen = 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1';
+    $result = '*';
+    
 		// validate input
 		$valid = true;
 		if (empty($info)) {
@@ -37,9 +41,9 @@
 		if ($valid) {
 			$pdo = Database::connect();
 			$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-			$sql = "INSERT INTO chessgames (info,white,black,pgn,comments) values(?, ?, ?, ?, ?)";
+			$sql = "INSERT INTO chessgames (info,white,black,pgn,comments,date,fen,result) values(?, ?, ?, ?, ?, ?, ?, ?)";
 			$q = $pdo->prepare($sql);
-			$q->execute(array($info,$white,$black,$pgn,$comments));
+			$q->execute(array($info,$white,$black,$pgn,$comments,$date,$fen,$result));
 			Database::disconnect();
 			header("Location:index.php#recent");
 		}

@@ -21,6 +21,7 @@ et <a href="https://github.com/jhlywa/chess.js/">chess.js</a> pour la validation
   <li>Database/user search function instead of just layin' all out like it is.</li>
   <li>htaccess file. </li>
   <li>Passwords. </li>
+  <li>Export PGN</li>
 </ul>
 ###Dependencies:
 <ul>

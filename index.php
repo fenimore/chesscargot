@@ -93,7 +93,7 @@
 					     $sql = 'SELECT * FROM chessgames ORDER BY id ASC';
 	   				   foreach ($pdo->query($sql) as $row) {
 						     		echo '<tr>';
-							     	echo '<td>'. $row['info'] . '</td>';
+							     	echo '<td>'. $row['info'] . '<br><div>' . $row['date'] . '</div> <br><div class="text-center">' . $row['result'] . '</div> </td>';
 							     	echo '<td><div id="player'.$row['white'].'-'.$row['id'].'">'. $row['white'] . '</div></td>';
 							     	echo '<td><div id="player'.$row['black'].'-'.$row['id'].'">'. $row['black'] . '</div></td>';
                     echo '<td style="font-family:monospace;padding:20px;" class="hidden-xs">'. $row['pgn'] . '</td>';
@@ -141,7 +141,7 @@
       </div>
       <div class="row"style="margin-bottom:10%">
         <div class="col-md-4">
-          <img style="width:50%;height:auto;margin-left:15%"  src="img/play.png" />
+          <img style="width:50%;height:auto"  src="img/play.png" />
           <br>
           <h4>PGN?</h4>
           <p>PGN (Portable Game Notation) est une notation algébrique qui est facile à lire ou écrire (pour humaines, pas comme <a href="http://en.wikipedia.org/wiki/Forsyth%E2%80%93Edwards_Notation"> notation FEN</a>). <a href="http://www.iechecs.com/notation.htm#intro">Cliquez ici</a> pour une introduction, <span style="color:#B0464C"> or <a href="http://www6.chessclub.com/help/PGN-spec">here</a> for English.</span>

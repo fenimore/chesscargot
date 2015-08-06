@@ -23,6 +23,7 @@
 		$pgn = $_POST['pgn'];
 		$fen = $_POST['fen'];
 		$comments = $_POST['comments'];
+		$result = $_POST['result'];
 
 		// validate input
 		$valid = true;
@@ -32,7 +33,7 @@
 		}
 
 		if (empty($white)) {
-			$whiteError = 'who is white?';
+			$whiteError = 'who is white\?';
 			$valid = false;
 		}
 
@@ -45,9 +46,9 @@
 		if ($valid) {
 			$pdo = Database::connect();
 			$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-			$sql = "UPDATE chessgames  set info = ?, white = ?, black =?, pgn =?, fen =?, comments =? WHERE id = ?";
+			$sql = "UPDATE chessgames  set info = ?, white = ?, black =?, pgn =?, fen =?, comments =?, result =? WHERE id = ?";
 			$q = $pdo->prepare($sql);
-			$q->execute(array($info,$white,$black,$pgn, $fen, $comments, $id));
+			$q->execute(array($info,$white,$black,$pgn, $fen, $comments, $result, $id));
 			Database::disconnect();
 			header("Location: index.php"); //change to update.php OR should I??????
 		}
@@ -110,7 +111,19 @@
 		function copymove(){
 			document.getElementById("pgninput").value = game.pgn();
 			document.getElementById("feninput").value = game.fen();
+			score = "";
+			if (game.in_checkmate()){
+		    if (game.turn() === 'b') {
+		      score = "1-0";
+		    } else {
+		      score = "0-1";
+		    }
+			} else {
+			  score = "*";  
+			}
+			document.getElementById("resultinput").value = score;
 		}
+		
 		function gameBack(){
 		  board.position(game.back());
 		}
@@ -163,6 +176,7 @@
 								<div id="board" class="img-responsive"></div>
 								<div id="gamecontrol">
 								  <a class="btn btn-default" onclick="gameBack()"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Précédent</a>
+								  <a class="btn btn-default" onclick="flipboard()"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> Flip</a>
 								  <a id="nextbtn" class="btn btn-default" onclick="gameNext()"> Suivant <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></a>
 								  <br>
 								  <a class="btn btn-info" onclick="flipboard()" style="display:none;"><span class="glyphicon glyphicon-refresh" aria-hidden="true">Renverser</a>
@@ -175,6 +189,12 @@
 									<label class="u-full-width">info</label>
 									<div class="u-full-width">
 											<input name="info" type="text"  placeholder="info" value="<?php echo !empty($info)?$info:'';?>">
+									</div>
+								</div>
+								<div style="display:none">
+									<label class="u-full-width">result</label>
+									<div class="u-full-width">
+											<input name="result" type="text"  id="resultinput" placeholder="result" value="<?php echo !empty($result)?$result:'';?>">
 									</div>
 								</div>
 								<div style="display:none" class="u-full-width <?php echo !empty($whiteError)?'error':'';?>">
@@ -221,7 +241,9 @@
 										<textarea name="history" style="display:none;" class="form-control" id="history" placeholder="history"><?php echo !empty($pgn)?$pgn:'';?></textarea>
 										<label style="display:none">id</label>
                     <input type="hidden" name="number" value="<?php echo $id;?>"/>
-									  <button type="submit" class=" btn btn-default"><span class="glyphicon glyphicon-send" aria-hidden="true"></span> Ping</button>
+
+									  <button type="submit" class=" btn btn-default"><span class="glyphicon glyphicon-send" aria-hidden="true"></span> Ping</button>                    
+									  <a class="btn btn-default" href="export.php?id=<?php echo $id;?>"><span class="glyphicon glyphicon-export" aria-hidden="true"></span> Exporter</a>
 							  </form>
 							</div>
 		    		</div>
