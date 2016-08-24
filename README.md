@@ -46,9 +46,6 @@ The required database has 5 columns: id (autoincrement primary key), info, black
         PRIMARY KEY (`id`)
     );
 
-###Broken:
-Screenshots are out of date! Too lazy!
 
 ###Screenshots:
-<img src="http://play.plyp.org/img/db_screen.png" width="400px"></img>
-<img src="http://play.plyp.org/img/play_screen.png" width="400px"></img>
+<img src="http://polypmer.github.io/img/chesscargot.png" width="400px"></img>
