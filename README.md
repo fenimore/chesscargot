@@ -31,7 +31,20 @@ et <a href="https://github.com/jhlywa/chess.js/">chess.js</a> pour la validation
   <li> <a href="http://chessboardjs.com/">chessboard.js</a> and <a href="https://github.com/jhlywa/chess.js/">chess.js</a></li>
 </ul>
 ###Database Initialization:
-The required database has 5 columns: id (autoincrement), info, black, white, pgn, comments. These last two are type longtext. All columns are not-null & utf8. In order to set up a chesscargot instance, fill out the localhost/database/username information in the database.php file and create a database with the appropriate tables.
+The required database has 5 columns: id (autoincrement primary key), info, black, white, pgn, comments, fen, results, and date. Pgn and comments are type longtext. All columns are not-null & utf8. In order to set up a chesscargot instance, fill out the localhost/database/username information in the database.php file and create a database with the appropriate tables.
+
+    CREATE TABLE `database`.`table` ( 
+        `id` INT NOT NULL AUTO_INCREMENT , 
+        `info` VARCHAR NOT NULL , 
+        `white` VARCHAR NOT NULL , 
+        `black` VARCHAR  NOT NULL , 
+        `pgn` LONGTEXT  NOT NULL , 
+        `date` TEXT  NOT NULL , 
+        `fen` TEXT NOT NULL , 
+        `comments` INT NOT NULL , 
+        `results` TEXT  NOT NULL , 
+        PRIMARY KEY (`id`)
+    );
 
 ###Broken:
 Screenshots are out of date! Too lazy!
