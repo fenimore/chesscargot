@@ -33,7 +33,7 @@ et <a href="https://github.com/jhlywa/chess.js/">chess.js</a> pour la validation
 ###Database Initialization:
 The required database has 5 columns: id (autoincrement primary key), info, black, white, pgn, comments, fen, results, and date. Pgn and comments are type longtext. All columns are not-null & utf8. In order to set up a chesscargot instance, fill out the localhost/database/username information in the database.php file and create a database with the appropriate tables.
 
-    CREATE TABLE `database`.`table` ( 
+    CREATE TABLE `database`.`chessgames` ( 
         `id` INT NOT NULL AUTO_INCREMENT , 
         `info` VARCHAR NOT NULL , 
         `white` VARCHAR NOT NULL , 
