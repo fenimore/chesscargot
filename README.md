@@ -44,14 +44,14 @@ In order to set up a chesscargot instance, fill out the localhost/database/usern
 
     CREATE TABLE `database`.`chessgames` ( 
         `id` INT NOT NULL AUTO_INCREMENT , 
-        `info` VARCHAR NOT NULL , 
-        `white` VARCHAR NOT NULL , 
-        `black` VARCHAR  NOT NULL , 
-        `pgn` LONGTEXT  NOT NULL , 
-        `date` TEXT  NOT NULL , 
+        `info` VARCHAR(255) NOT NULL , 
+        `white` VARCHAR(255) NOT NULL , 
+        `black` VARCHAR(255) NOT NULL , 
+        `pgn` LONGTEXT NOT NULL , 
+        `date` TEXT NOT NULL , 
         `fen` TEXT NOT NULL , 
         `comments` LONGTEXT NOT NULL , 
-        `results` TEXT  NOT NULL , 
+        `results` TEXT NOT NULL , 
         PRIMARY KEY (`id`)
     );
 
