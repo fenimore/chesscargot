@@ -41,7 +41,7 @@ The required database has 5 columns: id (autoincrement primary key), info, black
         `pgn` LONGTEXT  NOT NULL , 
         `date` TEXT  NOT NULL , 
         `fen` TEXT NOT NULL , 
-        `comments` INT NOT NULL , 
+        `comments` LONGTEXT NOT NULL , 
         `results` TEXT  NOT NULL , 
         PRIMARY KEY (`id`)
     );
