@@ -1,72 +1,74 @@
 <?php
 
-	require 'database.php';
+    require 'database.php';
 
-	$id = null;
-	if ( !empty($_GET['id'])) {
-		$id = $_REQUEST['id'];
-	}
+    $id = null;
+    if ( !empty($_GET['id'])) {
+        $id = $_REQUEST['id'];
+    }
 
-	if ( !empty($_POST)) {
-		// keep track validation errors
-		$infoError = null;
-		$whiteError = null;
-		$blackError = null;
-		$pgnError = null;
-		$fenError = null;
-		$commentsError = null;
+    if ( !empty($_POST)) {
+        // keep track validation errors
+        $infoError = null;
+        $whiteError = null;
+        $blackError = null;
+        $pgnError = null;
+        $fenError = null;
+        $commentsError = null;
 
-		// keep track post values
-		$info = $_POST['info'];
-		$white = $_POST['white'];
-		$black = $_POST['black'];
-		$pgn = $_POST['pgn'];
-		$fen = $_POST['fen'];
-		$comments = $_POST['comments'];
-		$result = $_POST['result'];
+        // keep track post values
+        $info = $_POST['info'];
+        $white = $_POST['white'];
+        $black = $_POST['black'];
+        $pgn = $_POST['pgn'];
+        $fen = $_POST['fen'];
+        $comments = $_POST['comments'];
+        $result = $_POST['result'];
 
-		// validate input
-		$valid = true;
-		if (empty($info)) {
-			$infoError = 'Please enter date, or other information';
-			$valid = false;
-		}
+        // validate input
+        $valid = true;
+        if (empty($info)) {
+            $infoError = 'Please enter date, or other information';
+            $valid = false;
+        }
 
-		if (empty($white)) {
-			$whiteError = 'who is white\?';
-			$valid = false;
-		}
+        if (empty($white)) {
+            $whiteError = 'who is white\?';
+            $valid = false;
+        }
 
-		if (empty($black)) {
-			$blackError = 'who is black?';
-			$valid = false;
-		}
+        if (empty($black)) {
+            $blackError = 'who is black?';
+            $valid = false;
+        }
 
-		// update data
-		if ($valid) {
-			$pdo = Database::connect();
-			$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-			$sql = "UPDATE chessgames  set info = ?, white = ?, black =?, pgn =?, fen =?, comments =?, result =? WHERE id = ?";
-			$q = $pdo->prepare($sql);
-			$q->execute(array($info,$white,$black,$pgn, $fen, $comments, $result, $id));
-			Database::disconnect();
-			header("Location: index.php"); //change to update.php OR should I??????
-		}
-	} else {
-		$pdo = Database::connect();
-		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		$sql = "SELECT * FROM chessgames where id = ?";
-		$q = $pdo->prepare($sql);
-		$q->execute(array($id));
-		$data = $q->fetch(PDO::FETCH_ASSOC);
-		$info = $data['info'];
-		$white = $data['white'];
-		$black = $data['black'];
-		$pgn = $data['pgn'];
-		$fen = $data['fen'];
-		$comments = $data['comments'];
-		Database::disconnect();
-	}
+        // update data
+        if ($valid) {
+            $pdo = Database::connect();
+            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $sql = "UPDATE chessgames  set info = ?, white = ?, black =?, pgn =?, fen =?, comments =?, result =? WHERE id = ?";
+            $q = $pdo->prepare($sql);
+            $q->execute(array(htmlspecialchars($info),
+                              htmlspecialchars($white),htmlspecialchars($black),htmlspecialchars($pgn), htmlspecialchars($fen),
+                              htmlspecialchars($comments), htmlspecialchars($result), htmlspecialchars($id)));
+            Database::disconnect();
+            header("Location: index.php"); //change to update.php OR should I??????
+        }
+    } else {
+        $pdo = Database::connect();
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $sql = "SELECT * FROM chessgames where id = ?";
+        $q = $pdo->prepare($sql);
+        $q->execute(array($id));
+        $data = $q->fetch(PDO::FETCH_ASSOC);
+        $info = $data['info'];
+        $white = $data['white'];
+        $black = $data['black'];
+        $pgn = $data['pgn'];
+        $fen = $data['fen'];
+        $comments = $data['comments'];
+        Database::disconnect();
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -86,54 +88,54 @@
 
     <!-- Custom styles for this template -->
     <link href="css/style.css" rel="stylesheet">
-		<link rel="stylesheet" href="css/chessboard-0.3.0.css">
+        <link rel="stylesheet" href="css/chessboard-0.3.0.css">
     <link href='http://fonts.googleapis.com/css?family=Poiret+One|Quicksand&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <style>
-		#entry, #pgn {
+        #entry, #pgn {
       font-family:monospace;
     }
     </style>
-		<script>
-		function reset(){
-		  board.start(); game.clear();
-		  game = new Chess();
-		  updateStatus();}
-		function flipboard() {
-		  board.flip();
-		}
-		function undomove(){
-		  game.undo();
-		  updateStatus();
-			board.position(game.fen());
-		  //var board = new ChessBoard('board', game.fen());
-		  //game.load(board.fen());
-		}
-		function copymove(){
-			document.getElementById("pgninput").value = game.pgn();
-			document.getElementById("feninput").value = game.fen();
-			score = "";
-			if (game.in_checkmate()){
-		    if (game.turn() === 'b') {
-		      score = "1-0";
-		    } else {
-		      score = "0-1";
-		    }
-			} else {
-			  score = "*";  
-			}
-			document.getElementById("resultinput").value = score;
-		}
-		
-		function gameBack(){
-		  board.position(game.back());
-		}
-		function gameNext() {
-		  board.position(game.next());
-		}
-		</script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/json3/3.3.2/json3.min.js"></script>
-		<script src="js/chessboard-0.3.0.js"></script>
-		<script src="js/chess.js"></script>
+        <script>
+        function reset(){
+          board.start(); game.clear();
+          game = new Chess();
+          updateStatus();}
+        function flipboard() {
+          board.flip();
+        }
+        function undomove(){
+          game.undo();
+          updateStatus();
+            board.position(game.fen());
+          //var board = new ChessBoard('board', game.fen());
+          //game.load(board.fen());
+        }
+        function copymove(){
+            document.getElementById("pgninput").value = game.pgn();
+            document.getElementById("feninput").value = game.fen();
+            score = "";
+            if (game.in_checkmate()){
+            if (game.turn() === 'b') {
+              score = "1-0";
+            } else {
+              score = "0-1";
+            }
+            } else {
+              score = "*";  
+            }
+            document.getElementById("resultinput").value = score;
+        }
+
+        function gameBack(){
+          board.position(game.back());
+        }
+        function gameNext() {
+          board.position(game.next());
+        }
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/json3/3.3.2/json3.min.js"></script>
+        <script src="js/chessboard-0.3.0.js"></script>
+        <script src="js/chess.js"></script>
   </head>
 
   <body>
@@ -161,21 +163,21 @@
     </nav>
 
     <div class="container">
-						<div class="row">
-							<div class="col-md-5">
-								<h4><small style="color:#6ab293;"><?php echo !empty($info)?$info:'';?>:&nbsp;</small>
-									<?php echo !empty($white)?$white:'';?>&nbsp;<small style="color:#6ab293;">contre</small>&nbsp;
-									<?php echo !empty($black)?$black:'';?></h4>
-							</div>
-							<div class="col-md-4">
-								<h4><span style="color:black" id="status"></span></h4>
-							</div>
-						</div>
-    				<div class="row">
-							<div class="col-md-5">
-								<div id="board" class="img-responsive"></div>
-								<div id="gamecontrol">
-								  <a class="btn btn-default" onclick="gameBack()"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Précédent</a>
+                        <div class="row">
+                            <div class="col-md-5">
+                                <h4><small style="color:#6ab293;"><?php echo !empty($info)?$info:'';?>:&nbsp;</small>
+                                    <?php echo !empty($white)?$white:'';?>&nbsp;<small style="color:#6ab293;">contre</small>&nbsp;
+                                    <?php echo !empty($black)?$black:'';?></h4>
+                            </div>
+                            <div class="col-md-4">
+                                <h4><span style="color:black" id="status"></span></h4>
+                            </div>
+                        </div>
+                    <div class="row">
+                            <div class="col-md-5">
+                                <div id="board" class="img-responsive"></div>
+                                <div id="gamecontrol">
+<a class="btn btn-default" onclick="gameBack()"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Précédent</a>
 								  <a class="btn btn-default" onclick="flipboard()"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> Flip</a>
 								  <a id="nextbtn" class="btn btn-default" onclick="gameNext()"> Suivant <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></a>
 								  <br>
@@ -353,4 +355,3 @@
 		  </script>
   </body>
 </html>
-
