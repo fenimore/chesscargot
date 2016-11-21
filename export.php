@@ -1,40 +1,40 @@
 <?php
-	require 'database.php';
-	$id = null;
-	if ( !empty($_GET['id'])) {
-		$id = $_REQUEST['id'];
-	}
+    require 'database.php';
+    $id = null;
+    if ( !empty($_GET['id'])) {
+        $id = $_REQUEST['id'];
+    }
 
-	if ( null==$id ) {
-		header("Location: index.php");
-	} else {
-		$pdo = Database::connect();
-		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		$sql = "SELECT * FROM chessgames where id = ?";
-		$q = $pdo->prepare($sql);
-		$q->execute(array($id));
-		$data = $q->fetch(PDO::FETCH_ASSOC);
-		Database::disconnect();
-	  $file =  $data['white'] .'vs'. $data['black'] . '-'. $data['date'] . '.pgn';
+    if ( null==$id ) {
+        header("Location: index.php");
+    } else {
+        $pdo = Database::connect();
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $sql = "SELECT * FROM chessgames where id = ?";
+        $q = $pdo->prepare($sql);
+        $q->execute(array($id));
+        $data = $q->fetch(PDO::FETCH_ASSOC);
+        Database::disconnect();
+      $file =  $data['white'] .'vs'. $data['black'] . '-'. $data['date'] . '.pgn';
     $export = '[Event "'. $data['info'] . '"]';
     $export .= "\n";
     $export .= '[Site "Echescargot"]';
-    $export .= "\n";    
+    $export .= "\n";
     $export .= '[Date "'. $data['date'] . '"]';
-    $export .= "\n";    
+    $export .= "\n";
     $export .= '[Round "'. $data['id'] . '"]';
-    $export .= "\n";    
+    $export .= "\n";
     $export .= '[White "'. $data['white'] . '"]';
-    $export .= "\n";    
+    $export .= "\n";
     $export .= '[Black "'. $data['black'] . '"]';
     $export .= "\n";
     $export .= '[Result "'. $data['result'] . '"]';
-    $export .= "\n";    
+    $export .= "\n";
     $export .= '[Mode "ICS"]';
-    $export .= "\n\n";    
+    $export .= "\n\n";
     $export .= $data['pgn'];
     // Write the contents back to the file
-    file_put_contents($file, $export);
+    // file_put_contents($file, $export);
     header('Content-Description: File Transfer');
     header('Content-Type: application/x-chess-pgn');
     header('Content-Disposition: attachment; filename="'.basename($file).'"');
@@ -42,12 +42,16 @@
     header('Expires: 0');
     header('Cache-Control: must-revalidate');
     header('Pragma: public');
-    header('Content-Length: ' . filesize($file));
-    ob_clean();
-    flush();
-    readfile($file);
+    echo $export;
+    //header('Content-Length: ' . filesize($file));
+
+//ob_clean();    //readfile($file);
+//ob_clean();
+//flush();
+//readfile($file);
+
     exit;
-	}
+    }
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -61,7 +65,7 @@
     <link rel="icon" href="img/favicon.ico">
 
     <title>Eschescargot - Exporter</title>
-    
+
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome core CSS -->
@@ -87,8 +91,8 @@
     <!-- Placed at the start of the document for the chessboard generation -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-		<script src="js/chessboard-0.3.0.js"></script>
-		<script src="js/chess.js"></script>
+        <script src="js/chessboard-0.3.0.js"></script>
+        <script src="js/chess.js"></script>
 
   </head>
 
@@ -122,7 +126,7 @@
     </nav>
 
     <div class="container">
-    			<div class="col-md-6" style="padding:50px;margin-top:5%;">
+                <div class="col-md-6" style="padding:50px;margin-top:5%;">
             <h2><?php echo $data['white'];?> vs. <?php echo $data['black'];?></h2>
             [Event "<?php echo $data['info'];?>"]<br>
             [Site "Echescargot"]<br>
@@ -136,13 +140,13 @@
             <?php echo $data['pgn'];?>
             <br>
             <form class="form-inline" action="export.php" method="post">
-	    			  <input type="hidden" name="id" value="<?php echo $id;?>"/>
-					  <div class="form-actions"><br>
-						  <button type="submit" class="btn btn-primary index-button" style="padding:5px;">Télécharger</button>
-					    <a href="update.php?id=<?php echo $data['id'];?>" class="btn btn-default index-button" style="padding:5px;">Retour</a>
-						</div>
-					</form>
-				</div>
+                      <input type="hidden" name="id" value="<?php echo $id;?>"/>
+                      <div class="form-actions"><br>
+                          <button type="submit" class="btn btn-primary index-button" style="padding:5px;">Télécharger</button>
+<a href="update.php?id=<?php echo $data['id'];?>" class="btn btn-default index-button" style="padding:5px;">Retour</a>
+                        </div>
+                    </form>
+                </div>
 
     </div> <!-- /container -->
   </body>
